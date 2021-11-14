@@ -1,17 +1,17 @@
 import java.util.ArrayList;
 
-public class Theme{
+public class Themes{
     private String nom;
     private boolean indicateur;
-    protected ArrayList<Theme> themes = new ArrayList<Theme>();
+    protected ArrayList<Themes> themes = new ArrayList<Themes>();
     
-    public Theme(){
+    public Themes(){
         this.nom = "";
         this.indicateur = false;
         themes.add(this);
     }
 
-    public Theme(String nom){
+    public Themes(String nom){
         this.nom = nom;
         this.indicateur = false;
         themes.add(this);
@@ -20,7 +20,7 @@ public class Theme{
     public int getIndiceOfTheme(String nom){
         int position = -1;
         int indiceActuel = 0;
-            for (Theme theme : themes){
+            for (Themes theme : themes){
                 if (theme.nom == nom){
                     return indiceActuel;
                 }
@@ -31,6 +31,8 @@ public class Theme{
         return position;
     }
 
+    //méthode renvoyant les 5 indices des 5 themes données en argument mais est-elle nécessaire
+    //ou alors la compréhensions du text du sujet est-elle à revoir ?
     public int[] getIndicesOf5Themes(String nom1, String nom2, String nom3, String nom4,String nom5){
         int[] indices = new int[5];
         String[] noms = {nom1, nom2, nom3, nom4, nom5};
@@ -40,11 +42,16 @@ public class Theme{
         return indices;
     }
 
+    //méthode permettant de renvoyer le String du nom du thème
+    public String getNom(){
+        return this.nom;
+    }
+
     @Override
     public String toString(){
         String string = "";
-        for (Theme theme : themes){
-            if (theme.indicateur == false){
+        for (Themes theme : themes){
+            if (!theme.indicateur){
                 string = string + ("le theme " + this.nom + " n'a pas encore etait choisit \n");
             }
             else{

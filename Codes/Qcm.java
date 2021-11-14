@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Qcm extends Types {
+public class Qcm extends Question {
     private String text;
     private String[] answers = new String[3];
     private int repJuste;
@@ -15,6 +15,8 @@ public class Qcm extends Types {
         this.repJuste = 0;
     }
 
+    //inutile je pense car on a la méthode de saisie
+    //Nous la gardons en attendant de voir l'implémentation des phases de jeux.
     public Qcm(String text, String prop1, String prop2, String prop3, int bonneProp){
         super();
         this.text = text;
@@ -27,7 +29,7 @@ public class Qcm extends Types {
     public void saisie(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Quel est le theme de la question ?");
-        this.theme = scanner.nextLine();
+        this.theme = (scanner.nextLine());
         System.out.println("Quel est le niveau de la question ?");
         this.niveau = scanner.nextInt();
         System.out.println("Quel est l'enonce de la question ?");
@@ -57,4 +59,5 @@ public class Qcm extends Types {
                 }
         return string;
     }
+
 }

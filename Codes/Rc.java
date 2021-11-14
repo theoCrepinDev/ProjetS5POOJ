@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Rc extends Types{
+public class Rc extends Question{
     private String text;
     private String answer;
 
@@ -15,7 +15,7 @@ public class Rc extends Types{
     public void saisie(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Quel est le theme de la question ?");
-        this.theme = scanner.nextLine();
+        this.theme = (scanner.nextLine());
         System.out.println("Quel est le niveau de la question ?");
         this.niveau = scanner.nextInt();
         System.out.println("Quel est l'enonce de la question ?");
@@ -29,7 +29,7 @@ public class Rc extends Types{
     @Override
     public String toString(){
         String string = "";
-        string = ("Cette question VF est la numero " + this.numero + "portant sur le theme de " + this.theme + " de niveau " + this.niveau + ". \n L'enonce est : " + this.answer + "\n");
+        string = ("Cette question VF est la numero " + this.numero + "portant sur le theme de " + this.theme + " de niveau " + this.niveau + ". \n L'enonce est : " + this.text + "\n");
         return string;
     }
 

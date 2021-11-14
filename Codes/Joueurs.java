@@ -30,7 +30,7 @@ public class Joueurs extends Joueur{
     public String toString(){
         String string = "";
         for (Joueur joueur : joueurs){
-            string = string + joueur.toString();
+            string = string + joueur.toString() + "\n";
         }
         return string;
     }
