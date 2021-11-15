@@ -4,6 +4,7 @@ public class Joueur{
     private int numero;
     private String nom;
     private int score;
+    //etat "SELECTIONNE";"GAGNANT";"SUPER-GAGNANT";"ELIMINE";"ATTENTE"
     private String etat;
     private int numeroActuel = 100;
     
@@ -39,4 +40,6 @@ public class Joueur{
     public void ajoutScore(int ajout){ this.score += ajout; }
 
     public void changementEtat(String etat){ this.etat = etat ;}
+
+    public String getEtat(){return this.etat;}
 }

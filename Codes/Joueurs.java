@@ -2,20 +2,32 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
-public class Joueurs extends Joueur{
+public class Joueurs{
     private ArrayList<Joueur> joueurs = new ArrayList<Joueur>();
 
     public Joueurs(){
         // ce n'est pas logique il faut re réfléchir à ce que doit faire le constructeur de cette class
-        super();
-        joueurs.add(this);
     }
 
+    //Modifier car modifi l'état du joueur
+    //fonction qui renvoit un joueur aléatoir qui est en attente
     public Joueur selectionAlJoueur(){
+        //déclaration de rand pour obtenir des entiers aléatoirs
         int nbrJoueurs = joueurs.size();
         Random rand = new Random();
-        int indicejoueurChoisit = rand.nextInt(nbrJoueurs - 1);
-        return joueurs.get(indicejoueurChoisit);
+        String etatJoueurTemp;
+        Joueur joueurTemp;
+        int indiceAleatoir = 0;
+        indiceAleatoir = rand.nextInt(nbrJoueurs - 1);
+        joueurTemp = joueurs.get(indiceAleatoir);
+        etatJoueurTemp = joueurTemp.getEtat();
+        while(etatJoueurTemp != "ATTENTE"){
+            //on sélectionne un indice aléatoire et on stock la valeur de l'indicateur
+            indiceAleatoir = rand.nextInt(nbrJoueurs - 1);
+            joueurTemp = joueurs.get(indiceAleatoir);
+            etatJoueurTemp = joueurTemp.getEtat();
+        }
+        return joueurTemp;
     }
 
     public void generation20Joueurs(){
