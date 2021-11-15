@@ -1,7 +1,3 @@
-import java.util.Scanner;
-
-import javax.lang.model.util.AbstractTypeVisitor6;
-
 //class abstract car la définition des méthode de saisie et 
 //d'affihcage dépend du type de la question
 public abstract class Question extends Questions {
