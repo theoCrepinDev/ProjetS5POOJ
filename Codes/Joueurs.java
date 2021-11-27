@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Joueurs{
-    private ArrayList<Joueur> joueurs = new ArrayList<Joueur>();
+    private static ArrayList<Joueur> joueurs = new ArrayList<Joueur>();
 
     public Joueurs(){
         // ce n'est pas logique il faut re réfléchir à ce que doit faire le constructeur de cette class
@@ -10,7 +10,7 @@ public class Joueurs{
 
     //Modifier car modifi l'état du joueur
     //fonction qui renvoit un joueur aléatoir qui est en attente
-    public Joueur selectionAlJoueur(){
+    public static Joueur selectionAlJoueur(){
         //déclaration de rand pour obtenir des entiers aléatoirs
         int nbrJoueurs = joueurs.size();
         Random rand = new Random();
