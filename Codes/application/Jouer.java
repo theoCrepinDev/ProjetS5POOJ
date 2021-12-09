@@ -12,7 +12,7 @@ public class Jouer {
 
     public void jouerPhase1(){
         jeu.selectionJoueurs();
-        System.out.println("Bienvenu chèr joueurs, la Phase 1 va pourvoir commencer....");
+        System.out.println("Bienvenu chère joueurs, la Phase 1 va pourvoir commencer....");
         System.out.println("Voici les joueurs sélectionnés pour cette phase :");
         System.out.println(jeu.getJoueursJeu());
 

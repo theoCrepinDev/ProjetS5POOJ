@@ -6,30 +6,14 @@ import java.util.Random;
 
 public class Themes{
     protected static List<Theme> themes = new ArrayList<>();
-    private String nom;
-    private boolean indicateur;
 
     public Themes(){
-        this.nom = "";
-        //indicateur à faux si le thème n'a pas encore était choisit
-        this.indicateur = false;
+        List<Theme> themes = new ArrayList<>();
     }
 
     public Themes(String nom){
-        this.nom = nom;
-        this.indicateur = false;
+        List<Theme> themes = new ArrayList<>();
     }
-
-    //méthdodes d'instance
-    public String getNom(){
-        return this.nom;
-    }
-
-    public boolean getIndicateur(){return this.indicateur;}
-
-    public void setIndicateur(boolean bool){this.indicateur = bool;}
-
-    public void setNom(String nom){this.nom = nom;}
 
 
 
