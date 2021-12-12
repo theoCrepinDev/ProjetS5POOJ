@@ -43,7 +43,6 @@ public class Rc extends Question{
         }
         
         
-        
         System.out.println("Question enregistrée.");
     }
 

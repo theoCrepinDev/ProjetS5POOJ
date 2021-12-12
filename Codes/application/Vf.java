@@ -23,22 +23,14 @@ public class Vf extends Question{
     }
 
     public void saisie(){
-        System.out.println("Ajout d'une question de types Vrai faux Quel est le theme de la question ?");
-        if(scanner.hasNextLine()){
-            super.setTheme(scanner.nextLine());
-        }
-        System.out.println("Quel est l'enonce de la question ?");
-        if(scanner.hasNextLine()){
-            this.text = scanner.nextLine();
-        }
-        System.out.println("Quel est le niveau de la question ?");
-        if(scanner.hasNextInt()){
-            this.niveau = scanner.nextInt();
-        }
+        System.out.println("Ajout d'une question de types Vrai faux Quel est le theme de la question ?");       
+        super.setTheme(scanner.nextLine());        
+        System.out.println("Quel est l'enonce de la question ?");        
+        this.text = scanner.nextLine();        
+        System.out.println("Quel est le niveau de la question ?");        
+        this.niveau = scanner.nextInt();        
         System.out.println("Quelle est la réponse de la question ? (true / false ?)");
-        if(scanner.hasNextBoolean()){
-            this.answer = scanner.nextBoolean();
-        }
+        this.answer = scanner.nextBoolean();        
         System.out.println("Question enregistrée.");
     }
 
@@ -47,6 +39,19 @@ public class Vf extends Question{
         String string = "";
         string = ("Cette question VF est la numero " + this.numero + "  portant sur le theme de " + this.theme.getNom() + " de niveau " + this.niveau + ". \n L'enonce est : " + this.text + "\n" + "réponse attenude: 1 pour vrai et 2 pour faux \n");
         return string;
+    }
+
+    public static String saisieTest(){
+        System.out.println("Ajout d'une question de types Vrai faux Quel est le theme de la question ?");       
+        String theme = scanner.nextLine();        
+        System.out.println("Quel est l'enonce de la question ?");        
+        String enonce = scanner.nextLine();        
+        System.out.println("Quel est le niveau de la question ?");        
+        int niveau = scanner.nextInt();        
+        System.out.println("Quelle est la réponse de la question ? (true / false ?)");
+        boolean answer = scanner.nextBoolean();        
+        System.out.println("Question enregistrée.");
+        return "Vf, q" + 100 + "," +enonce + "," + answer + "," + theme + "," + niveau +";";
     }
 
     //on prend que pour les VF l'utilisateur entrera 1 pour vrai et 2 pour faux
@@ -58,5 +63,6 @@ public class Vf extends Question{
             return this.answer == false;
         }
     }
+
 
 }
