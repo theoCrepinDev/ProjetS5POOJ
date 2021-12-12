@@ -89,3 +89,4 @@ Vf , q48 , Thalassa a été crée en 1980 ?,false, Films,2;
 Vf , q47 , C'est le sorcier qui choisi sa baguette? ,false, Films,1;
 Vf , q46 , Dans Harry Potter Mimi Geignarde qui a 13 ans est incarnée par une actrice de 37 ans?,true, Films,2;
 Vf, q100,bite,true,Anglais,1;
+Vf, q100,bite2 ,false,Histoire,2;
