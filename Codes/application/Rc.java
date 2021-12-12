@@ -55,7 +55,7 @@ public class Rc extends Question{
     }
 
     public boolean verificationReponse(String reponseDonnee){
-        return this.answer.toLowerCase().equals(reponseDonnee.toLowerCase());
+        return this.answer.toLowerCase().replaceAll("\\s+","").equals(reponseDonnee.toLowerCase().replaceAll("\\s+",""));
     }
 
 }

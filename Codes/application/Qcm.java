@@ -93,7 +93,7 @@ public class Qcm extends Question {
     }
 
     public boolean verificationReponse(String reponseDonnee){
-        return (Integer.parseInt(reponseDonnee) == this.repJuste);
+        return (Integer.parseInt(reponseDonnee.replaceAll("\\s+","")) == this.repJuste);
     }
 
 }
