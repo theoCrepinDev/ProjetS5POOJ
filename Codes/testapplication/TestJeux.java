@@ -6,12 +6,18 @@ import java.io.FileNotFoundException;
 import application.GestionFichier;
 import application.Jouer;
 import application.Joueurs;
+import application.Vf;
 
 public class TestJeux {
     public static void lanceJeu(){
-        CreationDonnees.creer10Themes();
         try {
-            GestionFichier.LectureQuestions();
+            GestionFichier.lectureThemes();
+        } catch (FileNotFoundException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+        try {
+            GestionFichier.lectureQuestions();
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -26,5 +32,9 @@ public class TestJeux {
             
             System.out.println(joueursTest.getJoueur());
 
+        }
+
+        public static void main(String[] args){
+            lanceJeu();
         }
 }

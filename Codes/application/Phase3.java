@@ -65,13 +65,34 @@ public class Phase3 implements Phase {
         System.out.println(questionAPoser);
         String reponseDonnee = "";
         reponseDonnee = scanner.nextLine();
-        boolean bonneReponse = questionAPoser.verificationReponse(reponseDonnee);
-        if(bonneReponse){
-            System.out.println("\u001B[32m" + "Félicitation c'est une bonne réposne, votre score a été mis à jour" + "\u001B[0m");
-            joueursSelectionnes.get(indiceJoueurConcerne).ajoutScore(5);
-        }
-        else{
-            System.out.println("\u001B[31m" + "Mauvaise Réponse, pas de poitns accordé ..." + "\u001B[0m");
+        boolean bonneReponse;
+        try {
+            bonneReponse = questionAPoser.verificationReponse(reponseDonnee);
+            if(bonneReponse){
+                System.out.println("\u001B[32m" + "Félicitation c'est une bonne réposne, votre score a été mis à jour" + "\u001B[0m");
+                joueursSelectionnes.get(indiceJoueurConcerne).ajoutScore(3);
+            }
+            else{
+                System.out.println("\u001B[31m" + "Mauvaise Réponse, pas de poitns accordé ..." + "\u001B[0m");
+            }
+        } catch (ExceptionReponse e) {
+            while(true){
+                System.out.println("Mauvais format de réponse donnée, \n entrer 1,2 ou 3 pour une quqestion QCM \n entre 1 pour true et 2 pour false pour un vrai/false \n entrer une réponse courte pour une réponse courte");
+                String newReponse = scanner.nextLine();
+                try {
+                    boolean newBonneReponse = questionAPoser.verificationReponse(newReponse);
+                    if(newBonneReponse){
+                        System.out.println("\u001B[32m" + "Félicitation c'est une bonne réposne, votre score a été mis à jour" + "\u001B[0m");
+                        joueursSelectionnes.get(indiceJoueurConcerne).ajoutScore(3);
+                    }
+                    else{
+                        System.out.println("\u001B[31m" + "Mauvaise Réponse, pas de poitns accordé ..." + "\u001B[0m");
+                    }
+                    break;
+                } catch (Exception f) {
+                    //TODO: handle exception
+                }
+            }
         }
     }
 

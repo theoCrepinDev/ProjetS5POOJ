@@ -92,8 +92,12 @@ public class Qcm extends Question {
         return string;
     }
 
-    public boolean verificationReponse(String reponseDonnee){
-        return (Integer.parseInt(reponseDonnee.replaceAll("\\s+","")) == this.repJuste);
+    public boolean verificationReponse(String reponseDonnee) throws ExceptionReponse{
+        if(reponseDonnee.equals("1") || reponseDonnee.equals("2") || reponseDonnee.equals("3")){
+            return (Integer.parseInt(reponseDonnee.replaceAll("\\s+","")) == this.repJuste);
+        }
+        throw new ExceptionReponse();
+        
     }
 
 }

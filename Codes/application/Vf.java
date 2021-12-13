@@ -50,13 +50,14 @@ public class Vf extends Question{
     }
 
     //on prend que pour les VF l'utilisateur entrera 1 pour vrai et 2 pour faux
-    public boolean verificationReponse(String reponseDonnee){
+    public boolean verificationReponse(String reponseDonnee) throws ExceptionReponse{
         if (reponseDonnee.replaceAll("\\s+","").equals("1")){
             return true == this.answer;
         }
-        else{
+        if(reponseDonnee.replaceAll("\\s+","").equals("2")){
             return this.answer == false;
         }
+        throw new ExceptionReponse();
     }
 
 }

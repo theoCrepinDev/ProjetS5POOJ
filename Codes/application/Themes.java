@@ -37,8 +37,7 @@ public class Themes{
     public static List<Theme> getThemes(){return themes;}
 
     //fonction renvoit -1 si le thème n'existe pas ou n'est pas dispo?
-    public static int getIndiceOfTheme(String nom){
-        int nonTrouve = -1;
+    public static int getIndiceOfTheme(String nom) throws ExceptionTheme{
         int positionActuel = 0;
         for(Theme theme:themes){
             if(theme.getNom().equals(nom)){
@@ -46,7 +45,7 @@ public class Themes{
             }
             positionActuel++;
         }
-        return nonTrouve;
+        throw new ExceptionTheme(nom);
     }
 
     //Cette fonction renvoit aléatoirement 6 themes de la grande liste de thèmes

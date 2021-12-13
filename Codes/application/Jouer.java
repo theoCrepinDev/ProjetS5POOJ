@@ -25,11 +25,15 @@ public class Jouer {
         System.out.println("Félicitation, la phase 1 est finie, vici les résultat :");
         System.out.println(jeu.getJoueursJeu());
 
-        System.out.println("Souaitez vous passer à la pahse 2 ? \n 1 oui 2 arrêter le jeu ici ..");
-        int choix = scanner.nextInt();
-        if(choix == 1){
-            this.jouerPhase2();
+        int choix = 0;
+        while(choix != 1 && choix != 2){
+            System.out.println("Souaitez vous passer à la pahse 3 ? \n 1 oui 2 arrêter le jeu ici ..");
+            choix = scanner.nextInt();
+            if(choix == 1){
+                this.jouerPhase2();
+            }
         }
+        
     }
 
     public void jouerPhase2(){
@@ -54,10 +58,13 @@ public class Jouer {
         System.out.println("Félicitation, la phase 2 est finie, vici les résultat :");
         System.out.println(jeu.getJoueursJeu());
 
-        System.out.println("Souaitez vous passer à la pahse 3 ? \n 1 oui 2 arrêter le jeu ici ..");
-        int choix = scanner.nextInt();
-        if(choix == 1){
-            this.jouerPhase3();
+        int choix = 0;
+        while(choix != 1 && choix != 2){
+            System.out.println("Souaitez vous passer à la pahse 3 ? \n 1 oui 2 arrêter le jeu ici ..");
+            choix = scanner.nextInt();
+            if(choix == 1){
+                this.jouerPhase2();
+            }
         }
     }
 

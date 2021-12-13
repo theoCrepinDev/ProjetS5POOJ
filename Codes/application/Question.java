@@ -1,5 +1,7 @@
 package application;
 
+import java.util.Scanner;
+
 //class abstract car la définition des méthode de saisie et 
 //_à)/d'affihcage dépend du type de la question
 public abstract class Question extends Questions {
@@ -9,6 +11,8 @@ public abstract class Question extends Questions {
     protected int niveau;
     //indicateur pour =è
     private boolean posee;
+
+    private static Scanner scanner = new Scanner(System.in);
 
     public Question(){
         this.numero = numeroActuel;
@@ -21,8 +25,15 @@ public abstract class Question extends Questions {
     public Question(String theme, int niveau){
         this.numero = numeroActuel;
         numeroActuel += 10;
-        int temp = Themes.getIndiceOfTheme(theme);
-        this.theme = Themes.getTheme(temp);
+        int temp;
+        try {
+            temp = Themes.getIndiceOfTheme(theme);
+            this.theme = Themes.getTheme(temp);
+        } catch (ExceptionTheme e) {
+            // TODO Auto-generated catch block
+            System.out.println("erreur constru");
+            
+        }
         this.niveau = niveau;
         super.ajoutQuestion(this);
         this.posee = false;
@@ -38,8 +49,24 @@ public abstract class Question extends Questions {
     }
 
     public void setTheme(String nomTheme){
-        int temp = Themes.getIndiceOfTheme(nomTheme);
-        this.theme = Themes.getTheme(temp);
+        int temp;
+        try {
+            temp = Themes.getIndiceOfTheme(nomTheme);
+            this.theme = Themes.getTheme(temp);
+        } catch (ExceptionTheme e) {
+            // TODO Auto-generated catch block
+            while(true){
+                System.out.println("Ce thème n'existe pas entrer un nouveau thème");
+                String nvxTheme = scanner.nextLine();
+                try {
+                    temp = Themes.getIndiceOfTheme(nvxTheme);
+                    this.theme = Themes.getTheme(temp);
+                    break;
+                } catch (Exception f) {
+                    //TODO: handle exception
+                }
+            }
+        }
     }
     //les méthodes de séléction d'une quesion
     // a définir dans la phase de jeux
@@ -59,5 +86,5 @@ public abstract class Question extends Questions {
 
     public abstract void saisie();
 
-    public abstract boolean verificationReponse(String reponseDonnee);
+    public abstract boolean verificationReponse(String reponseDonnee) throws ExceptionReponse;
 }
