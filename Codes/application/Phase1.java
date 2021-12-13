@@ -19,6 +19,44 @@ public class Phase1 implements Phase {
         this.derniereQuestionSelec = 0;
     }
 
+    //fonction pour savoir si il y a plusieurs joueurs avec le score le plus faible
+    @Override
+    public boolean uniquePerdant(){
+        boolean resultat = true;
+        int scorePerdantTemp = 0;
+        long tempsReponseTemp = 0;
+        for(Joueur joueur : joueursSelectionnes){
+            if(joueur.getEtat() == "SELECTIONNE" && joueur.getScore() == scorePerdantTemp && joueur.getElapsedTime() == tempsReponseTemp){
+                resultat = false;
+            }
+            if(joueur.getEtat() == "SELECTIONNE" && joueur.getScore() < scorePerdantTemp && joueur.getElapsedTime() > tempsReponseTemp){
+                resultat = true;
+                scorePerdantTemp = joueur.getScore();
+                tempsReponseTemp = joueur.getElapsedTime();
+            }
+        }
+        return resultat;
+    }
+
+    //fonction qui renvoit une liste des joueurs aynt le plus faible score
+    @Override
+    public List<Joueur> getPerdants(){
+        List<Joueur> perdants = new ArrayList<>();
+            int nbrPointsTemps = joueursSelectionnes.get(0).getScore();
+            //on recherche le joueur de joueursSelectionne avec le moins de poinrs et on le supprime
+            for(Joueur joueur : joueursSelectionnes){
+                if(joueur.getScore() < nbrPointsTemps && joueur.getEtat() == "SELECTIONNE"){
+                    nbrPointsTemps = joueur.getScore();
+                }
+            }
+            for(Joueur joueur: joueursSelectionnes){
+                if(joueur.getScore() == nbrPointsTemps){
+                    perdants.add(joueur);
+                }
+            }
+        return perdants;
+    }
+
     @Override
     public void selectionJoueurs() {
         // TODO Auto-generated method stub
@@ -58,6 +96,7 @@ public class Phase1 implements Phase {
         // TODO Auto-generated method stub
         System.out.println("Cette question est pour le joueur nomé: " + joueursSelectionnes.get(indiceJoueurConcerne).getNom() + " ");     
         System.out.println(questionAPoser);
+        joueursSelectionnes.get(indiceJoueurConcerne).startTimer();
         String reponseDonnee = "";
         reponseDonnee = scanner.nextLine();
         boolean bonneReponse;
@@ -70,6 +109,7 @@ public class Phase1 implements Phase {
             else{
                 System.out.println("\u001B[31m" + "Mauvaise Réponse, pas de poitns accordé ..." + "\u001B[0m");
             }
+            joueursSelectionnes.get(indiceJoueurConcerne).stopTimer();
         } catch (ExceptionReponse e) {
             while(true){
                 System.out.println("Mauvais format de réponse donnée, \n entrer 1,2 ou 3 pour une quqestion QCM \n entre 1 pour true et 2 pour false pour un vrai/false \n entrer une réponse courte pour une réponse courte");
@@ -78,11 +118,12 @@ public class Phase1 implements Phase {
                     boolean newBonneReponse = questionAPoser.verificationReponse(newReponse);
                     if(newBonneReponse){
                         System.out.println("\u001B[32m" + "Félicitation c'est une bonne réposne, votre score a été mis à jour" + "\u001B[0m");
-                        joueursSelectionnes.get(indiceJoueurConcerne).ajoutScore(3);
+                        joueursSelectionnes.get(indiceJoueurConcerne).ajoutScore(2);
                     }
                     else{
                         System.out.println("\u001B[31m" + "Mauvaise Réponse, pas de poitns accordé ..." + "\u001B[0m");
                     }
+                    joueursSelectionnes.get(indiceJoueurConcerne).stopTimer();
                     break;
                 } catch (Exception f) {
                     //TODO: handle exception

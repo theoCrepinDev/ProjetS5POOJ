@@ -11,4 +11,6 @@ public interface Phase {
     List<Theme> getThemesSelectionnes();
     void trouverGagnant();
     int getDerniereQuestionSelectionnee();
+    boolean uniquePerdant();
+    List<Joueur> getPerdants();
 }
