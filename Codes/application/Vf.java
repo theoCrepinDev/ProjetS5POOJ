@@ -41,17 +41,21 @@ public class Vf extends Question{
         return string;
     }
 
-    public static String saisieTest(){
+    public String saisieTest(){
         System.out.println("Ajout d'une question de types Vrai faux Quel est le theme de la question ?");       
         String theme = scanner.nextLine();        
+        super.setTheme(theme);
         System.out.println("Quel est l'enonce de la question ?");        
-        String enonce = scanner.nextLine();        
+        String enonce = scanner.nextLine();
+        this.text = enonce;        
         System.out.println("Quel est le niveau de la question ?");        
-        int niveau = scanner.nextInt();        
+        int niveau = scanner.nextInt();
+        this.niveau = niveau;        
         System.out.println("Quelle est la réponse de la question ? (true / false ?)");
         boolean answer = scanner.nextBoolean();        
+        this.answer = answer;
         System.out.println("Question enregistrée.");
-        return "Vf, q" + 100 + "," +enonce + "," + answer + "," + theme + "," + niveau +";";
+        return "Vf, " + this.numero + "," +enonce + "," + answer + "," + theme + "," + niveau +";";
     }
 
     //on prend que pour les VF l'utilisateur entrera 1 pour vrai et 2 pour faux

@@ -32,13 +32,24 @@ public class GestionFichier {
 
         }
         if ( indType == 2){
-            ajoutQuestion(Vf.saisieTest());;
+            
+            ajoutQuestion((new Vf()).saisieTest());
         }
         if ( indType == 3){
 
         }
     }
     public static void main(String[] args) throws FileNotFoundException{
+        Themes.nouveauTheme("Géographie");
+        Themes.nouveauTheme("Histoire");
+        Themes.nouveauTheme("Français");
+        Themes.nouveauTheme("Anglais");
+        Themes.nouveauTheme("Mathématiques");
+        Themes.nouveauTheme("Films");
+        Themes.nouveauTheme("Musique");
+        Themes.nouveauTheme("Sport");
+        Themes.nouveauTheme("Physique");
+        Themes.nouveauTheme("Informatique");
         askForQuestion();
     }
     
