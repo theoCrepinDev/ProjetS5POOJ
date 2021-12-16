@@ -37,6 +37,16 @@ public class Menu {
 
     }
     public static void main(String[] args) throws FileNotFoundException{
+        Themes.nouveauTheme("Géographie");
+        Themes.nouveauTheme("Histoire");
+        Themes.nouveauTheme("Français");
+        Themes.nouveauTheme("Anglais");
+        Themes.nouveauTheme("Mathématiques");
+        Themes.nouveauTheme("Films");
+        Themes.nouveauTheme("Musique");
+        Themes.nouveauTheme("Sport");
+        Themes.nouveauTheme("Physique");
+        Themes.nouveauTheme("Informatique");
         menu();
     }
     

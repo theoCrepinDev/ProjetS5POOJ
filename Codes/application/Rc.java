@@ -24,26 +24,28 @@ public class Rc extends Question{
 
     public void saisie(){
         System.out.println("ha Quel est le theme de la question ?");
-        if(scanner.hasNextLine()){
-            super.setTheme(scanner.nextLine());
-        }
+        super.setTheme(scanner.nextLine());
         System.out.println("Quel est l'enonce de la question ?");
-        if(scanner.hasNextLine()){
-            this.text = scanner.nextLine();
-        }
-        
+        this.text = scanner.nextLine();        
         System.out.println("Quelle est la réponse de la question ? ");
-        if(scanner.hasNextLine()){
-            this.answer = scanner.nextLine();
-        }
-        
+        this.answer = scanner.nextLine();        
         System.out.println("Quel est le niveau de la question ?");
-        if(scanner.hasNextInt()){
-            this.niveau = scanner.nextInt();
-        }
-        
+        this.niveau = scanner.nextInt();        
         
         System.out.println("Question enregistrée.");
+    }
+    public String saisieTest(){
+        System.out.println("Ajout d'une question de types Vrai faux Quel est le theme de la question ?");       
+        String theme = scanner.nextLine();        
+        super.setTheme(theme);
+        System.out.println("Quel est l'enonce de la question ?");
+        this.text = scanner.nextLine();        
+        System.out.println("Quel est le niveau de la question ?");
+        this.niveau = scanner.nextInt();        
+        System.out.println("Quelle est la réponse de la question ?");   
+        this.answer = scanner.nextLine();
+        System.out.println("Question enregistrée.");
+        return "Vf, " + this.numero + "," +this.text + "," + this.answer + "," + theme + "," + this.niveau +";";
     }
 
     @Override

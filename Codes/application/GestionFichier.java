@@ -26,17 +26,16 @@ public class GestionFichier {
 
     public static void askForQuestion() throws FileNotFoundException{
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Quelle type de question voulez vous implementer : \n 1:Qcm \n2: Vf\n3: Reponse courte");
+        System.out.println("Quelle type de question voulez vous implementer : \n1:Qcm \n2: Vf\n3: Reponse courte");
         int indType = scanner.nextInt();
         if ( indType == 1){
-
+            ajoutQuestion((new Qcm()).saisieTest());
         }
         if ( indType == 2){
-            
             ajoutQuestion((new Vf()).saisieTest());
         }
         if ( indType == 3){
-
+            ajoutQuestion((new Rc()).saisieTest());
         }
     }
     public static void main(String[] args) throws FileNotFoundException{

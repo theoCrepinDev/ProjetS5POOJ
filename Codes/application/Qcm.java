@@ -33,49 +33,37 @@ public class Qcm extends Question {
 
     public void saisie(){
         System.out.println("Ajout d'une question de types QCM Quel est le theme de la question ?");
-        if(scanner.hasNextLine()){
-            super.setTheme(scanner.nextLine());
-        }
-        
-        
+        super.setTheme(scanner.nextLine());
         System.out.println("Quel est l'enonce de la question ?");
-        while(!scanner.hasNextLine()){
-            
-        }
         this.text = scanner.nextLine();
-        
         System.out.println("Quel est le niveau de la question");
-        if(scanner.hasNextInt()){
-            this.niveau = scanner.nextInt();
-        }
-
-        System.out.println("");
-        if(scanner.hasNextLine()){
-            this.answers[1] = scanner.nextLine();
-        }
+        this.niveau = scanner.nextInt();
         System.out.println("Quelle est le choix n°1 de la question ? ");
-        if(scanner.hasNextLine()){
-            this.answers[0] = scanner.nextLine();
-        }
-
+        this.answers[0] = scanner.nextLine();
         System.out.println("Quelle est le choix n°2 de la question ? ");
-        if(scanner.hasNextLine()){
-            this.answers[1] = scanner.nextLine();
-        }
-        
-        
-        
+        this.answers[1] = scanner.nextLine();
         System.out.println("Quelle est le choix n°3 de la question ? ");
-        if(scanner.hasNextLine()){
-            this.answers[2] = scanner.nextLine();
-        }
-        
+        this.answers[2] = scanner.nextLine();
         System.out.println("Quelle est la bonne réponse de la question ? (numéro)");
-        if(scanner.hasNextInt()){
-            this.repJuste = scanner.nextInt();
-        }
-        
+        this.repJuste = scanner.nextInt();        
         System.out.println("Question enregistrée.");
+    }
+    public String saisieTest(){
+        System.out.println("Ajout d'une question de types Vrai faux Quel est le theme de la question ?");       
+        String theme = scanner.nextLine();        
+        super.setTheme(theme);
+        System.out.println("Quel est l'enonce de la question ?");
+        this.text = scanner.nextLine();        
+        System.out.println("Quel est le niveau de la question ?");
+        this.niveau = scanner.nextInt();        
+        System.out.println("Quelle est le choix n°1 de la question ? ");
+        this.answers[0] = scanner.nextLine();
+        System.out.println("Quelle est le choix n°2 de la question ? ");
+        this.answers[1] = scanner.nextLine();
+        System.out.println("Quelle est le choix n°3 de la question ? ");
+        this.answers[2] = scanner.nextLine();
+        System.out.println("Question enregistrée.");
+        return "Qcm, " + this.numero + "," +this.text + "," + this.answers[0] + ","+ this.answers[1] + ","+ this.answers[2] + "," + theme + "," + this.niveau +";";
     }
 
     @Override

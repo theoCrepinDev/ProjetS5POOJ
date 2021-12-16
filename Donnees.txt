@@ -88,7 +88,7 @@ Qcm , q49 , Dans la série Friends combien de fois Ross s’est-il marié ?,0 fo
 Vf , q48 , Thalassa a été crée en 1980 ?,false, Films,2;
 Vf , q47 , C'est le sorcier qui choisi sa baguette? ,false, Films,1;
 Vf , q46 , Dans Harry Potter Mimi Geignarde qui a 13 ans est incarnée par une actrice de 37 ans?,true, Films,2;
-Vf, q100,bite,true,Anglais,1;
-Vf, q100,bite2 ,false,Histoire,2;
-Vf, q100,biteuuuu,false,Angalis,2;
-Vf, 1,hqhqbite,false,Anglais,2;
+
+Vf, 1,ozjef,true,Anglais,3;
+Vf, 1,pjdas,true,Physique,1;
+Qcm, 1,pojsfdpokdsf,,sc,,Histoire,1;
