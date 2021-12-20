@@ -10,11 +10,21 @@ public class Questions{
 
     //Que dois faire le constructeur ?
 
-    public void ajoutQuestion(Question question){
+    public static void ajoutQuestion(Question question){
         questions.add(question);
     }
     
-    public void supprimerQeustion(int index){
+    public static void supprimerQeustionIndex(int index){
+        questions.remove(index);
+    }
+
+    public static void supprimerQuestionNumero(int numero){
+        int index = 0;
+        for(int i = 0; i < questions.size(); i++){
+            if(questions.get(i).numero == numero){
+                index =  i;
+            }
+        }
         questions.remove(index);
     }
 
@@ -25,6 +35,8 @@ public class Questions{
     public static Question getQuestion(int i){
         return questions.get(i);
     }
+
+    
 
     //les méthodes de séléction d'une quesion
     // a définir dans la phase de jeux
@@ -43,5 +55,11 @@ public class Questions{
             }
         }
         return string;
+    }
+
+    public static void resetIndicateursQuestion(){
+        for (Question question : questions) {
+            question.setPosee(false);
+        }
     }
 }

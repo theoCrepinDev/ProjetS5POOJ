@@ -11,13 +11,13 @@ public class Rc extends Question{
         //faut-il ajouter un tableau des questions deja crées ?
 
     public Rc(){
-        super();
+        super(3);
         text = "";
         answer = "";
     }
     
     public Rc(String text, String answer, String theme, int niveau){
-        super(theme, niveau);
+        super(theme, niveau, 3);
         this.text = text;
         this.answer = answer;
     }
@@ -34,18 +34,18 @@ public class Rc extends Question{
         
         System.out.println("Question enregistrée.");
     }
-    public String saisieTest(){
-        System.out.println("Ajout d'une question de types Vrai faux Quel est le theme de la question ?");       
-        String theme = scanner.nextLine();        
+    public String saisieDev(){
+        System.out.println("Ajout d'une question de types Réponse courte Quel est le theme de la question ?");       
+        String theme = scanner.next();        
         super.setTheme(theme);
         System.out.println("Quel est l'enonce de la question ?");
-        this.text = scanner.nextLine();        
-        System.out.println("Quel est le niveau de la question ?");
-        this.niveau = scanner.nextInt();        
+        this.text = scanner.next();         
         System.out.println("Quelle est la réponse de la question ?");   
-        this.answer = scanner.nextLine();
+        this.answer = scanner.next();       
+        System.out.println("Quel est le niveau de la question ?");
+        this.niveau = scanner.nextInt();
         System.out.println("Question enregistrée.");
-        return "Vf, " + this.numero + "," +this.text + "," + this.answer + "," + theme + "," + this.niveau +";";
+        return "RC, " + this.numero + "," +this.text + "," + this.answer + "," + this.theme.getNom() + "," + this.niveau;
     }
 
     @Override
@@ -56,7 +56,7 @@ public class Rc extends Question{
     }
 
     public boolean verificationReponse(String reponseDonnee){
-        return this.answer.toLowerCase().equals(reponseDonnee.toLowerCase());
+        return this.answer.toLowerCase().replaceAll("\\s+","").equals(reponseDonnee.toLowerCase().replaceAll("\\s+",""));
     }
 
 }

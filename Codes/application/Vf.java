@@ -9,7 +9,7 @@ public class Vf extends Question{
     private static Scanner scanner = new Scanner(System.in);
     
     public Vf(){
-        super();
+        super(2);
         text = "";
         answer = false;
     }
@@ -17,7 +17,7 @@ public class Vf extends Question{
     //inutile je pense car on a la méthode de saisie
     //Nous la gardons en attendant de voir l'implémentation des phases de jeux.
     public Vf(String text, boolean answer, String theme, int niveau ){
-        super(theme, niveau);
+        super(theme, niveau,2);
         this.text = text;
         this.answer = answer;
     }
@@ -41,28 +41,29 @@ public class Vf extends Question{
         return string;
     }
 
-    public String saisieTest(){
+    public String saisieDev(){
         System.out.println("Ajout d'une question de types Vrai faux Quel est le theme de la question ?");       
-        String theme = scanner.nextLine();        
+        String theme = scanner.next();        
         super.setTheme(theme);
         System.out.println("Quel est l'enonce de la question ?");
-        this.text = scanner.nextLine();        
+        this.text = scanner.next();        
         System.out.println("Quel est le niveau de la question ?");
         this.niveau = scanner.nextInt();        
         System.out.println("Quelle est la réponse de la question ? (true / false ?)");   
         this.answer = scanner.nextBoolean();
         System.out.println("Question enregistrée.");
-        return "Vf, " + this.numero + "," +this.text + "," + this.answer + "," + theme + "," + this.niveau +";";
+        return "Vf, " + this.numero + "," +this.text + "," + this.answer + "," + this.theme.getNom() + "," + this.niveau;
     }
 
     //on prend que pour les VF l'utilisateur entrera 1 pour vrai et 2 pour faux
-    public boolean verificationReponse(String reponseDonnee){
-        if (reponseDonnee.equals("1")){
+    public boolean verificationReponse(String reponseDonnee) throws ExceptionReponse{
+        if (reponseDonnee.replaceAll("\\s+","").equals("1")){
             return true == this.answer;
         }
-        else{
+        if(reponseDonnee.replaceAll("\\s+","").equals("2")){
             return this.answer == false;
         }
+        throw new ExceptionReponse();
     }
 
 

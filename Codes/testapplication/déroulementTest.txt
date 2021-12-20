@@ -1,8 +1,0 @@
-QUes va faire le fichier de test de l'application
-
-Initialisation d'un jeu:
-    inititalisation d'une liste joueurs avec inititalisation de 20 joueurs
-    Affichage de la liste de joueurs
-    initialisation de la liste des themes, question
-    création de 6 questions deux de chaques types, une en dur et une en console
-    

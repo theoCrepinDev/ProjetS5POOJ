@@ -7,22 +7,11 @@ import java.util.Random;
 public class Themes{
     protected static List<Theme> themes = new ArrayList<>();
 
-    public Themes(){
-        List<Theme> themes = new ArrayList<>();
-    }
-
-    public Themes(String nom){
-        List<Theme> themes = new ArrayList<>();
-    }
-
-
-
     //méthodes de classes
     public static List<Theme> getThemes(){return themes;}
 
     //fonction renvoit -1 si le thème n'existe pas ou n'est pas dispo?
-    public static int getIndiceOfTheme(String nom){
-        int nonTrouve = -1;
+    public static int getIndiceOfTheme(String nom) throws ExceptionTheme{
         int positionActuel = 0;
         for(Theme theme:themes){
             if(theme.getNom().equals(nom)){
@@ -30,7 +19,7 @@ public class Themes{
             }
             positionActuel++;
         }
-        return nonTrouve;
+        throw new ExceptionTheme(nom);
     }
 
     //Cette fonction renvoit aléatoirement 6 themes de la grande liste de thèmes
@@ -41,12 +30,12 @@ public class Themes{
         Random rand = new Random();
         int nbrThemes = themes.size();
         for(int i =0; i < 6; i++){
-        int indiceAleatoir = rand.nextInt(nbrThemes - 1);
+        int indiceAleatoir = rand.nextInt(nbrThemes);
         Theme themeTemp = Themes.themes.get(indiceAleatoir);
         boolean indicaThemeTemp = themeTemp.getIndicateur();
             while(indicaThemeTemp){
                 //on séléection un indice aléatoir et on stock la valeur de l'indicateur du thème associé 
-                indiceAleatoir = rand.nextInt(nbrThemes -1);
+                indiceAleatoir = rand.nextInt(nbrThemes);
                 themeTemp = Themes.themes.get(indiceAleatoir);
                 indicaThemeTemp = themeTemp.getIndicateur();
             }
@@ -57,6 +46,12 @@ public class Themes{
         }
         //on renvoit le tableau des 6 themes choisit
         return themesChoisis; 
+    }
+
+    public static void resetIndicateursThemes(){
+        for(Theme theme : themes){
+            theme.setIndicateur(false);
+        }
     }
 
     public static void nouveauTheme(String nom){

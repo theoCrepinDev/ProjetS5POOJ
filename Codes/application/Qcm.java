@@ -12,7 +12,7 @@ public class Qcm extends Question {
     //faut-il ajouter un tableau des questions deja crées ?
 
     public Qcm(){
-        super();
+        super(1);
         this.text = "";
         this.answers[0] = "";
         this.answers[1] = "";
@@ -22,8 +22,8 @@ public class Qcm extends Question {
 
     //inutile je pense car on a la méthode de saisie
     //Nous la gardons en attendant de voir l'implémentation des phases de jeux.
-    public Qcm(String text, String prop1, String prop2, String prop3, int bonneProp, String theme, int niveau ){
-        super(theme, niveau);
+    public Qcm(String text, String prop1, String prop2, String prop3, int bonneProp, String theme, int niveau){
+        super(theme, niveau, 1);
         this.text = text;
         this.answers[0] = prop1;
         this.answers[1] = prop2;
@@ -33,37 +33,38 @@ public class Qcm extends Question {
 
     public void saisie(){
         System.out.println("Ajout d'une question de types QCM Quel est le theme de la question ?");
-        super.setTheme(scanner.nextLine());
+        super.setTheme(scanner.next());
         System.out.println("Quel est l'enonce de la question ?");
-        this.text = scanner.nextLine();
+        this.text = scanner.next();
+        System.out.println("Quelle est le choix n°1 de la question ? ");
+        this.answers[0] = scanner.next();
+        System.out.println("Quelle est le choix n°2 de la question ? ");
+        this.answers[1] = scanner.next();
+        System.out.println("Quelle est le choix n°3 de la question ? ");
+        this.answers[2] = scanner.next();
         System.out.println("Quel est le niveau de la question");
         this.niveau = scanner.nextInt();
-        System.out.println("Quelle est le choix n°1 de la question ? ");
-        this.answers[0] = scanner.nextLine();
-        System.out.println("Quelle est le choix n°2 de la question ? ");
-        this.answers[1] = scanner.nextLine();
-        System.out.println("Quelle est le choix n°3 de la question ? ");
-        this.answers[2] = scanner.nextLine();
         System.out.println("Quelle est la bonne réponse de la question ? (numéro)");
         this.repJuste = scanner.nextInt();        
         System.out.println("Question enregistrée.");
     }
-    public String saisieTest(){
-        System.out.println("Ajout d'une question de types Vrai faux Quel est le theme de la question ?");       
-        String theme = scanner.nextLine();        
-        super.setTheme(theme);
+    public String saisieDev(){
+        System.out.println("Ajout d'une question de types QCM Quel est le theme de la question ?");
+        super.setTheme(scanner.next());
         System.out.println("Quel est l'enonce de la question ?");
-        this.text = scanner.nextLine();        
-        System.out.println("Quel est le niveau de la question ?");
-        this.niveau = scanner.nextInt();        
+        this.text = scanner.next();
         System.out.println("Quelle est le choix n°1 de la question ? ");
-        this.answers[0] = scanner.nextLine();
+        this.answers[0] = scanner.next();
         System.out.println("Quelle est le choix n°2 de la question ? ");
-        this.answers[1] = scanner.nextLine();
+        this.answers[1] = scanner.next();
         System.out.println("Quelle est le choix n°3 de la question ? ");
-        this.answers[2] = scanner.nextLine();
+        this.answers[2] = scanner.next();
+        System.out.println("Quel est le niveau de la question");
+        this.niveau = scanner.nextInt();
+        System.out.println("Quelle est la bonne réponse de la question ? (numéro)");
+        this.repJuste = scanner.nextInt();        
         System.out.println("Question enregistrée.");
-        return "Qcm, " + this.numero + "," +this.text + "," + this.answers[0] + ","+ this.answers[1] + ","+ this.answers[2] + "," + theme + "," + this.niveau +";";
+        return "Qcm, " + "q" + this.numero + "," +this.text + "," + this.answers[0] + ","+ this.answers[1] + ","+ this.answers[2] + "," + this.repJuste + "," +  this.theme.getNom() + "," + this.niveau;
     }
 
     @Override
@@ -80,8 +81,12 @@ public class Qcm extends Question {
         return string;
     }
 
-    public boolean verificationReponse(String reponseDonnee){
-        return (Integer.parseInt(reponseDonnee) == this.repJuste);
+    public boolean verificationReponse(String reponseDonnee) throws ExceptionReponse{
+        if(reponseDonnee.equals("1") || reponseDonnee.equals("2") || reponseDonnee.equals("3")){
+            return (Integer.parseInt(reponseDonnee.replaceAll("\\s+","")) == this.repJuste);
+        }
+        throw new ExceptionReponse();
+        
     }
 
 }
