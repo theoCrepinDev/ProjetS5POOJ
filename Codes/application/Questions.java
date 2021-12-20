@@ -1,14 +1,16 @@
+/*
+Projet question réponse 2021 GUERIMAND, CREPIN, PHILIPPE, BURETTE
+    Implémente le gestion de la liste de toutes les questions
+    avec les fonction de sélections
+*/
 package application;
 
 import java.util.ArrayList;
 import java.util.List;
-//implémentation loin d'être faites et visualisée
 public class Questions{
 
-    //curieux je ne sais pas si il faut qu'elle extends theme ou pas 
     private static List<Question> questions = new ArrayList<Question>();
 
-    //Que dois faire le constructeur ?
 
     public static void ajoutQuestion(Question question){
         questions.add(question);

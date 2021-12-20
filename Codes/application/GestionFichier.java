@@ -1,3 +1,11 @@
+/*
+Projet question réponse 2021 GUERIMAND, CREPIN, PHILIPPE, BURETTE
+Classe pour la gestion du fichier de données,
+permet de lire les questions présentes dans le fichier et le thème au lancement du programme
+permet d'inscrire les nouveaux thèmes et les nouvelle questions rentrées 
+par les utilisateur lors de l'exécution
+*/
+
 package application;
 
 import java.io.*;
@@ -7,6 +15,7 @@ import java.util.Scanner;
 public class GestionFichier {
     private static Scanner scanner = new Scanner(System.in);
 
+    //lecture des thèmes présents dans le fichier Themes.txt à l'execution du programme
     public static void lectureThemes() throws FileNotFoundException{
         FileInputStream file = new FileInputStream("Themes.txt");
         Scanner scannerThemes = new Scanner(file);
@@ -18,6 +27,7 @@ public class GestionFichier {
         }
     }
 
+    //lecture des questions présentes dans le fichier Donnees.txt à l'execution du programme
     public static void lectureQuestions() throws FileNotFoundException{
         FileInputStream file = new FileInputStream("Donnees.txt");
         Scanner scannerLecture = new Scanner(file);
@@ -61,6 +71,7 @@ public class GestionFichier {
         }
     }
 
+    //inscrit une nouvelle question dans le fichier Donnees.txt
     public static void ajoutQuestion(String text) throws FileNotFoundException{
         //FileInputStream file = new FileInputStream("Donnees.txt");
         //Scanner scanner = new Scanner(file);
@@ -79,6 +90,7 @@ public class GestionFichier {
         }
     }
 
+    //inscrit un nouveau thème dans le fichier Themes.txt
     public static void AjoutTheme(String theme) throws FileNotFoundException{
         //FileInputStream file = new FileInputStream("Donnees.txt");
         //Scanner scanner = new Scanner(file);
@@ -97,6 +109,7 @@ public class GestionFichier {
         }
     }
 
+    //fonction qui permet a l'utilisateur de rentrer une nouvelle question
     public static void askForQuestion() throws FileNotFoundException{
         System.out.println("Quelle type de question voulez vous implementer : \n1:Qcm \n2: Vf\n3: Reponse courte");
         int indType = scanner.nextInt();
@@ -111,6 +124,7 @@ public class GestionFichier {
         }
     }
 
+    //fonction qui permet à l'utilisateur d'entrer un nouveau thème
     public static void askForTheme() throws FileNotFoundException{
         System.out.println("Quel est le nom du nouveau theme ?");
         String nvxTheme = scanner.next();

@@ -1,0 +1,90 @@
+Rc , q1 , En quelle annee Mao a-t-il lance sa revolution culturelle ?,1966, Histoire, 3
+Qcm , q2 , En France en quelle annee a debute la IIIe Republique ?,1815, 1870, 1918, 2,Histoire, 2 
+Vf , q3 , La guerre d'Algerie a pris fin en 1962?, true, Histoire, 1
+Rc , q4 , En quelle annee la revolution des Œillets a-t-elle eu lieu au Portugal ?  ,1974, Histoire, 2
+Qcm , q5 , En quelle annee Salvador Allende a-t-il ete renverse par Pinochet au Chili ?,1946, 1958, 1973, 3, Histoire, 3 
+Vf , q6 , Le mur de Berlin est tombe en 1992, false, Histoire, 1
+Rc , q7 , En quelle annee le commandant Massoud a-t-il ete assassine ?,2001, Histoire, 2
+Qcm , q8 , En quelle annee Charles Martel a-t-il remporte la bataille de Poitiers ?,437, 732, 998, 2, Histoire, 3 
+Vf , q9 , En France la majorite à ete abaissee à 18 ans en 1974., true, Histoire, 1
+Rc , q10 , Dans quelle ville italienne se trouve la tour Pirelli ?, Milan, Geographie,1
+Rc , q11 , Quel fleuve franchit le pont Vasco de Gama ?,Le Tage, Geographie,2
+Rc , q12 , Dans quelle ville europeenne se trouve le pont Felipe II ?, Barcelone, Geographie,3
+Qcm , q13 , Quelle ville est surnommee la Fiancee de la Mediterranee ?,Alexandrie,Tunis, Tel-Aviv,3, Geographie,1
+Qcm , q14 , Dans quelle ville se trouve la Statue de la Liberte ?,Washington, New York, Chicago,2, Geographie,2
+Qcm , q15 , Quel est le chef-lieu du departement de l’Allier ?, Moulins, Montlucon, Vichy, 1, Geographie,3
+Vf , q16 , Le Nil coule en Afrique, true, Geographie,1
+Vf , q17 , Le chateau d'If se trouve face à Rennes, false, Geographie,2
+Vf , q18 , Santiago est surnommee la Cite de grès rose., false, Geographie,3
+Rc , q19 , À quel auteur doit-on le roman « Le Comte de Monte-Cristo » ?, Alexandre Dumas, Francais,1
+Rc , q20 , Quel auteur de polar a publie « Le Grand nulle part » ?,James Ellroy, Francais,2
+Rc , q21 , À quel ecrivain doit-on les « Illusions perdues » ?, Honore de Balzac, Francais,3
+Qcm , q22 , Quel auteur a livre ses « Memoires d’outre-tombe » ?,Chateaubriand,Beaumarchais, Flaubert,1, Francais,1
+Qcm , q23 , À quel auteur doit-on « La Chartreuse de Parme » ?,Hugo, Stendhal, Balzac,2, Francais,2
+Qcm , q24 , À quel auteur doit-on le roman « Moby Dick » ?, William Faulkner, Mark Twain, Herman Melville, 3, Francais,3
+Vf , q25 , Le roman <A rebours> est ecrit J. -K Huysmans, true, Francais,1
+Vf , q26 , Le roman <Le bruit et la fureur> est ecrit par Rudyard Kipling., false, Francais,2
+Vf , q27 , Le roman <De sang-froid> est ecrit par T.S. Eliot, false, Francais,3
+Rc , q28 , Combien font 8 x 9, 72, Mathematiques,1
+Rc , q29 , Si 10 000 euros rapportent 280 euros d’interêts. Combien rapportent 7 500 euros ?,210, Mathematiques,2
+Rc , q30 , Combien y a-t-il de decimètres (dm dans 5 mètres), 50, Mathematiques,3
+Qcm , q31 , Qu’est-ce qu’un triangle isocèle,Un triangle qui a un angle droit,Un triangle qui a trois côtes de même longueur, Un triangle qui a deux côtes de même longueur,3, Mathematiques,1
+Qcm , q32 , Si 20 km sont representes par 5 cm sur une carte quelle est l'echelle de cette carte ?,1/400000, 1/20000, 1/40,1, Mathematiques,2
+Qcm , q33 , Quelle est la racine carree de 36, 9, 12, 6, 3, Mathematiques,3
+Vf , q34 , Un losange avec un angle droit est un rectangle, false, Mathematiques,1
+Vf , q35 , Le cerlce est un polygone, false, Mathematiques,2
+Vf , q36 , La somme des angles d'un triangle est egale à 180°, true, Mathematiques,3
+Rc , q37 , le preterite de abide, abode, Anglais,1
+Rc , q38 , Quel est le participe passe de awake?,awoken, Anglais,2
+Rc , q39 , Quel est le preterite de bet, bet, Anglais,3
+Qcm , q40 , Take a chair and sit ... me,beside,besides, besided,1, Anglais,1
+Qcm , q41 , He has a ... in the cupboard,skeleton, body, men,1, Anglais,2
+Qcm , q42 , Canadians say that Vancouver is ... to live in than any other city, easier, easiest, easy, 1, Anglais,3
+Vf , q43 , la phrase est juste ? : I have worked here since January, true, Anglais,1
+Vf , q44 , Shakespearse was born in Manchester, false, Anglais,2
+Vf , q45 , The great Fire destroyed London in 1666, true, Anglais,3
+Rc , q90 , Qu'elle est la duree d'un match de foot,90 minutes, Sport, 1
+Qcm , q89 , Qu'elle est la duree d'un match de rugby,90,80,45,2,Sport, 2
+Vf , q88 , La duree d'une prolongation de football est de 10min? ,false, Sport,3
+Rc , q87 , Qui a gagner la coupe du monde de foot de 2010,Espagne, Sport, 3
+Qcm , q86 , Qui est considere comme le meilleur joueur de basket-ball de tous les temps ?,Micheal Jordan,Cobe Brian,Tony Parker,1,Sport, 2
+Vf , q85 , Le temps d'un match de handball est de 60 minutes?,true, Sport,1
+Rc , q84 , En qu'elle annee l'escalade à ete implemente au JO ,2021, Sport, 3
+Qcm , q83 , le Yaniro est une technique utilise en:,escalade,football,rugby,1,Sport,1
+Vf , q82 , Il existe plusieurs categorie par taille à l'escalade?,false, Sport,2
+Rc , q81 , Qu'elle est le numero atomique de l'hydrogène?,1, Physique, 1
+Qcm , q80 , Comment appelle-t-on le reseau internet hertzien sans fil ?,le wi-fi,la TNT,le FM,1,Physique,1
+Vf , q79 , 1 kilo est equivalent a 100 gramme,false, Physique,1
+Rc , q78 , Qu'elle est le numero atomique de l'argent?,43, Physique, 3
+Qcm , q77 , 1 mètre cube d'eau est equivalent à: ,10 mètre,1000 litre,10 decimètrecube,2,Physique,2
+Vf , q76 , Est ce que l'eau mouille?,true, Physique,1
+Rc , q75 , Combien Newton à t'il invente de theorèmes?,3, Physique, 2
+Qcm , q74 , Quel nom de physicien a-t-on donne à l’unite internationale de l'intensite du courant electrique ?,Ohm,Watt,Ampère,3,Physique,3
+Vf , q73 , L'or est-il le metal le plus precieux? ,false, Physique,2
+Rc , q72 , Qu'elle language informatique est aussi une danse?,JAVA,Informatique, 2
+Qcm , q71 , Qui a invente le JAVA,1990,1992,1985,2,Informatique,3
+Vf , q70 , La programmation et le codage sont identiques?,false, Informatique,2
+Rc , q69 , Qui à invente un ordinateur fonctionnant à l'eau?,Vladimir Lukyanov, Informatique,3
+Qcm , q68 , Comment s'appelle les problèmes rencontrer en programation? ,des bugs, des bogues,des tuilles,2,Informatique,2
+Vf , q67 , Le premier programeur ete une dame? ,true, Informatique,2
+Rc , q66 , En quelle annee a ete fabrique la machine de Turing,1936, Informatique, 3
+Qcm , q65 , Quel film à ete le premier à avoir des scène entièrement faite par ordinateur?,Star Wars,Tron,Harry Potter,2,Informatique,3
+Vf , q64 , Il est possible de renommer des dossier par n'importe quelle nom?,false, Informatique,2
+Rc , q63 , Qu'elle est le CD le plus vendu,Thriller, Musique, 2
+Rc , q62 , Quel titre Robin Thicke a-t-il interprete aux côtes de T.I et Pharell Williams ?,Blurred Lines, Musique, 3
+Rc , q61 , De quel pays les Beatles sont-ils originaires ?,Angleterre, Musique, 2
+Qcm , q60 ,  Quel est le titre du second album studio de Stromae?,Formidable,Racine carree,Alors on danse,2,Musique,2
+Qcm , q59 , Quel groupe a interprete la chanson « C.R.E.A.M. » ?,Wu Tang clan,Black Eyed Peas,Public Enemy,1,Musique,3
+Qcm , q58 , Qui interprète le tube « Andalouse » ?,Keen' V,Julien Dore,Kendji Girac,3,Musique,2
+Vf , q57 , Kanye West interprète le tube  Berzerk  ?,false, Musique,2
+Vf , q56 , Le saxophoniste Charlie Parker ete surnomme The bird?,true, Musique,3
+Vf , q55 , Le groupe Frero Delavega s’est fait connaître dans The Voice?,true, Musique,2
+Rc , q54 , Quelle emission est animee par Jamy Gourmaud/ Frederic Courant/ Sabine Quindou ?,C'est pas sorcier, Films, 2
+Rc , q53 , Dans la 1ère saison de Prison Break pour quel assassinat Lincoln Burrows est-il emprisonne à Fox River ?,Terrence Steadman, Films, 3
+Rc , q52 , Combien y a t'il de Films de l'univers de star wars?,15, Films, 3
+Qcm , q51 , Qui a gagne la 1ère edition de Koh Lanta en 2001?,Gilles,Philippe,Christina,1,Films,3
+Qcm , q50 ,  À quel numero de la rue Evergreen Terrace les Simpson habitent-ils ?,69,115,742,3,Films,2
+Qcm , q49 , Dans la serie Friends combien de fois Ross s’est-il marie ?,0 fois,3 fois,5 fois,2,Films,2
+Vf , q48 , Thalassa a ete cree en 1980 ?,false, Films,2
+Vf , q47 , C'est le sorcier qui choisi sa baguette? ,false, Films,1
+Vf , q46 , Dans Harry Potter Mimi Geignarde qui a 13 ans est incarnee par une actrice de 37 ans?,true, Films,2

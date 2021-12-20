@@ -1,3 +1,7 @@
+/*
+Projet question réponse 2021 GUERIMAND, CREPIN, PHILIPPE, BURETTE
+Implémente les méthodes abstraite et toutes les fonctionnélité propre au Réponse courtes
+*/
 package application;
 
 import java.util.Scanner;
@@ -22,6 +26,7 @@ public class Rc extends Question{
         this.answer = answer;
     }
 
+    //permet la saisie d'une question
     public void saisie(){
         System.out.println("ha Quel est le theme de la question ?");
         super.setTheme(scanner.nextLine());
@@ -34,6 +39,7 @@ public class Rc extends Question{
         
         System.out.println("Question enregistrée.");
     }
+    //permet la saisie d'une question et renvoit ce qui doit être inscrit dans le fichier donnees.txt
     public String saisieDev(){
         System.out.println("Ajout d'une question de types Réponse courte Quel est le theme de la question ?");       
         String theme = scanner.next();        

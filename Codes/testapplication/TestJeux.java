@@ -1,3 +1,10 @@
+/*
+Projet question réponse 2021 GUERIMAND, CREPIN, PHILIPPE, BURETTE
+Méthode de lancement de l'application, permet de lancer l'application,
+
+Il faut lancer la méthode main pour lancer l'application
+*/
+
 package testapplication;
 
 import java.io.FileNotFoundException;

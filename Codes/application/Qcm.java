@@ -1,3 +1,7 @@
+/*
+Projet question réponse 2021 GUERIMAND, CREPIN, PHILIPPE, BURETTE
+ Implementation de l'objet QCM qui implémente les méthodes abstract de Question selon le type QCM
+ */
 package application;
 
 import java.util.Scanner;
@@ -31,6 +35,7 @@ public class Qcm extends Question {
         this.repJuste = bonneProp;
     }
 
+    //permet la saisie d'une question
     public void saisie(){
         System.out.println("Ajout d'une question de types QCM Quel est le theme de la question ?");
         super.setTheme(scanner.next());
@@ -48,6 +53,9 @@ public class Qcm extends Question {
         this.repJuste = scanner.nextInt();        
         System.out.println("Question enregistrée.");
     }
+
+    //permet la saisie d'une question dans le menu utilisateur et permet de renvoyer ce qu'il faut 
+    //inscrire dans le fichier Donnees.txt
     public String saisieDev(){
         System.out.println("Ajout d'une question de types QCM Quel est le theme de la question ?");
         super.setTheme(scanner.next());

@@ -1,3 +1,8 @@
+/*
+Projet question réponse 2021 GUERIMAND, CREPIN, PHILIPPE, BURETTE
+    Définition du menu qui permet à l'utilisateur de naviguer
+    dans les options du jeux et de gestion du jeu
+*/
 package application;
 
 import java.io.FileNotFoundException;
@@ -75,11 +80,11 @@ public class Menu {
         }
         if (menu == 3){
             int sousMenu = 0;
-            System.out.println("Ques voulez-vous faire :\n\n1: Ajouter une question\n2:Ajouter un Thème\n3:Supprimer une question");
+            System.out.println("Ques voulez-vous faire :\n\n1: Ajouter une question\n2:Ajouter un Thème\n3:Supprimer une question\n4:Ajouter un joueur");
             sousMenu = scanner.nextInt();
             while(sousMenu <= 0 || sousMenu > 4){
                 System.out.println("Le chiffre saisie n'est pas valide.");
-                System.out.println("Ques voulez-vous faire :\n\n1: Ajouter une question\n2:Ajouter un Thème\n3:Supprimer une question");
+                System.out.println("Ques voulez-vous faire :\n\n1: Ajouter une question\n2:Ajouter un Thème\n3:Supprimer une question\n4:Ajouter un joueur");
                 sousMenu = scanner.nextInt();
             }
             switch (sousMenu) {
@@ -101,6 +106,8 @@ public class Menu {
                         Questions.supprimerQuestionNumero(numero);
                     }
                     break;
+                case 4:
+                    (new Joueur()).saisie();
             }
             //developper { ajout questions / ajouter theme / supprimer question }
 

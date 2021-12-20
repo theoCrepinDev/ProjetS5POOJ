@@ -1,3 +1,8 @@
+/*
+Projet question réponse 2021 GUERIMAND, CREPIN, PHILIPPE, BURETTE
+    implémente les question de Type Vrai/Faux
+    implémente les méthode abstract de Question et tout les paramètres propres au type VF
+*/
 package application;
 
 import java.util.Scanner;

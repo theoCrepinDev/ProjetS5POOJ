@@ -1,3 +1,9 @@
+/*
+Projet question réponse 2021 GUERIMAND, CREPIN, PHILIPPE, BURETTE
+Méthodes nécéssaire au déroulement de la phase 1
+Séléection des joueurs > sélection du thème  > pose la question > met a jour le score > gère les égalités
+Ces méthode suive le déroulement indiqué dans le Sujet
+*/
 package application;
 
 import java.util.ArrayList;
