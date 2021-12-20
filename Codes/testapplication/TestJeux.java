@@ -22,19 +22,17 @@ public class TestJeux {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
-            Joueurs joueursTest = new Joueurs();
-            joueursTest.generation20Joueurs();
+            Joueurs.generation20Joueurs();
 
             Jouer jeu1 = new Jouer();
-            jeu1.jouerPhase1();
+            jeu1.grandJeu();
             
             
-            System.out.println(joueursTest.getJoueur());
+            System.out.println(Joueurs.getJoueur());
 
         }
 
-        public static void main(String[] args){
+    public static void main(String[] args){
             lanceJeu();
-        }
+    }
 }

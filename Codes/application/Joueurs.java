@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Joueurs{
-    private static List<Joueur> joueurs;
+    private static List<Joueur> joueurs = new ArrayList<Joueur>();
 
     public Joueurs(){
         // ce n'est pas logique il faut re réfléchir à ce que doit faire le constructeur de cette class
@@ -34,7 +34,7 @@ public class Joueurs{
         return joueurTemp;
     }
 
-    public void generation20Joueurs(){
+    public static void generation20Joueurs(){
         String[] alphabet = {"A", "B", "C", "D", "E","F", "G", "H", "I","J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T"};
         for (String lettre : alphabet){
             Joueur joueur = new Joueur(lettre);
@@ -51,5 +51,25 @@ public class Joueurs{
         return string;
     }
 
-    public List<Joueur> getJoueur(){return Joueurs.joueurs;}
+    public static List<Joueur> getJoueur(){return Joueurs.joueurs;}
+
+    public static int getNbrJoueursDisponnibles(){
+        int joueursDisponnibles = 0;
+        for(Joueur joueur : joueurs){
+            if(joueur.getEtat() == "ATTENTE"){
+                joueursDisponnibles++;
+            }
+        }
+        return joueursDisponnibles;
+    }
+
+    public static List<Joueur> selectionGagnants(){
+        List<Joueur> gagnants = new ArrayList<>();
+        for (Joueur joueur : joueurs){
+            if(joueur.getEtat() == "GAGNANT"){
+                gagnants.add(joueur);
+            }
+        }
+        return gagnants;
+    }
 }

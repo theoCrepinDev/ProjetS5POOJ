@@ -21,36 +21,41 @@ public class Phase3 implements Phase {
     //fonction pour savoir si il y a plusieurs joueurs avec le score le plus faible
     @Override
     public boolean uniquePerdant(){
-        boolean resultat = true;
-        int scorePerdantTemp = 0;
-        long tempsReponseTemp = 0;
+        int scorePerdantTemp = joueursSelectionnes.get(0).getScore();
+        int nbrPerdant = 0;
+        long tempsReponseTemp = joueursSelectionnes.get(0).getElapsedTime();
         for(Joueur joueur : joueursSelectionnes){
             if(joueur.getEtat() == "SELECTIONNE" && joueur.getScore() == scorePerdantTemp && joueur.getElapsedTime() == tempsReponseTemp){
-                resultat = false;
+                nbrPerdant ++;
             }
-            if(joueur.getEtat() == "SELECTIONNE" && joueur.getScore() < scorePerdantTemp && joueur.getElapsedTime() > tempsReponseTemp){
-                resultat = true;
+            if(joueur.getEtat() == "SELECTIONNE" && joueur.getScore() == scorePerdantTemp && joueur.getElapsedTime() > tempsReponseTemp){
+                nbrPerdant = 1;
+                scorePerdantTemp = joueur.getScore();
+                tempsReponseTemp = joueur.getElapsedTime();
+            }
+            if(joueur.getEtat() == "SELECTIONNE" && joueur.getScore() < scorePerdantTemp){
+                nbrPerdant = 1;
                 scorePerdantTemp = joueur.getScore();
                 tempsReponseTemp = joueur.getElapsedTime();
             }
         }
-        return resultat;
+        return nbrPerdant == 1;
     }
 
     //fonction qui renvoit une liste des joueurs aynt le plus faible score
     @Override
-    public List<Joueur> getPerdants(){
-        List<Joueur> perdants = new ArrayList<>();
+    public List<Integer> getPerdants(){
+        List<Integer> perdants = new ArrayList<>();
             int nbrPointsTemps = joueursSelectionnes.get(0).getScore();
             //on recherche le joueur de joueursSelectionne avec le moins de poinrs et on le supprime
-            for(Joueur joueur : joueursSelectionnes){
-                if(joueur.getScore() < nbrPointsTemps && joueur.getEtat() == "SELECTIONNE"){
-                    nbrPointsTemps = joueur.getScore();
+            for(int i = 0; i < joueursSelectionnes.size(); i++){
+                if(joueursSelectionnes.get(i).getScore() < nbrPointsTemps && joueursSelectionnes.get(i).getEtat() == "SELECTIONNE"){
+                    nbrPointsTemps = joueursSelectionnes.get(i).getScore();
                 }
             }
-            for(Joueur joueur: joueursSelectionnes){
-                if(joueur.getScore() == nbrPointsTemps){
-                    perdants.add(joueur);
+            for(int i = 0; i < joueursSelectionnes.size(); i++){
+                if(joueursSelectionnes.get(i).getScore() == nbrPointsTemps){
+                    perdants.add(i);
                 }
             }
         return perdants;
@@ -82,12 +87,12 @@ public class Phase3 implements Phase {
         }
         else{
             //création d'un tableau contenant les dernier avec des timer egaux
-            List<Joueur> perdants = getPerdants();
+            List<Integer> perdants = getPerdants();
             int nbrPerdants = perdants.size();
             Random rand = new Random();
             int indicePerdant = rand.nextInt(nbrPerdants - 1);
-            joueursSelectionnes.get(indicePerdant).changementEtat("ELIMINE");
-            joueursSelectionnes.remove(joueursSelectionnes.get(indicePerdant));
+            joueursSelectionnes.get(perdants.get(indicePerdant)).changementEtat("ELIMINE");
+            joueursSelectionnes.remove(joueursSelectionnes.get(perdants.get(indicePerdant)));
 
             
         }        
@@ -119,13 +124,31 @@ public class Phase3 implements Phase {
     }
 
     @Override
-    public void poserQuestions(int indiceJoueurConcerne) {
+    public void poserQuestions(int indiceJoueurConcerne) throws InterruptedException {
         // TODO Auto-generated method stub
         System.out.println("Cette question est pour le joueur nomé: " + joueursSelectionnes.get(indiceJoueurConcerne).getNom() + " ");     
         System.out.println(questionAPoser);
         joueursSelectionnes.get(indiceJoueurConcerne).startTimer();
         String reponseDonnee = "";
-        reponseDonnee = scanner.nextLine();
+        if(joueursSelectionnes.get(indiceJoueurConcerne).isIa()){
+            System.out.println("L'Ia choisit une réponse ...");
+            switch (questionAPoser.getType()) {
+                //QCM
+                case 1:
+                    reponseDonnee = Ia.getRepQCM();
+                    break;
+                //VF
+                case 2:
+                    reponseDonnee = Ia.getRepVf();
+                    break;
+                //RC
+                case 3:
+                    reponseDonnee = Ia.getRepRC();
+                    break;
+            }
+        }else{
+            reponseDonnee = scanner.nextLine();
+        }
         boolean bonneReponse;
         try {
             bonneReponse = questionAPoser.verificationReponse(reponseDonnee);

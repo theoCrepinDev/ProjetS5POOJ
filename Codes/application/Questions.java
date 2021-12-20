@@ -44,4 +44,10 @@ public class Questions{
         }
         return string;
     }
+
+    public static void resetIndicateursQuestion(){
+        for (Question question : questions) {
+            question.setPosee(false);
+        }
+    }
 }

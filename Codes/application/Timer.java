@@ -24,6 +24,7 @@ public class Timer extends Thread{
         elapsedTime += calcElapsedTime();
     }
 
+    //le calcul du temps passé ce fait en seconde on divise donc le résultat par 1000.
     public long calcElapsedTime() {
         long elapsed;
         if (isRunning) {
@@ -35,6 +36,10 @@ public class Timer extends Thread{
         return elapsed;
     }
 
-    public long getElapsedTime(){ return elapsedTime; }
+    public long getElapsedTime(){ return elapsedTime / 1000; }
 
+    //méthode de test pour initialiser la valeur du timer à x
+    public void setTimmer(long x){
+        this.elapsedTime = x;
+    }
 }

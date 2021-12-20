@@ -53,6 +53,8 @@ public class GestionFichier {
                 case "Rc":
                     String texteR = lineSep[2];
                     String answerR = lineSep[3];
+                    //ajout de la reponse das la liste des réponses courtes pour l'IA
+                    Ia.ajoutRC(answerR.replaceAll("\\s+",""));
                     String themeR = lineSep[4].replaceAll("\\s+","");
                     int niveauR = Integer.parseInt(lineSep[5].replaceAll("\\s+",""));
                     new Rc(texteR, answerR, themeR, niveauR);

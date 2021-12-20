@@ -11,13 +11,13 @@ public class Rc extends Question{
         //faut-il ajouter un tableau des questions deja crées ?
 
     public Rc(){
-        super();
+        super(3);
         text = "";
         answer = "";
     }
     
     public Rc(String text, String answer, String theme, int niveau){
-        super(theme, niveau);
+        super(theme, niveau, 3);
         this.text = text;
         this.answer = answer;
     }

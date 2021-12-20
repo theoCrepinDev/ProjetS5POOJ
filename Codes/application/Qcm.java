@@ -12,7 +12,7 @@ public class Qcm extends Question {
     //faut-il ajouter un tableau des questions deja crées ?
 
     public Qcm(){
-        super();
+        super(1);
         this.text = "";
         this.answers[0] = "";
         this.answers[1] = "";
@@ -22,8 +22,8 @@ public class Qcm extends Question {
 
     //inutile je pense car on a la méthode de saisie
     //Nous la gardons en attendant de voir l'implémentation des phases de jeux.
-    public Qcm(String text, String prop1, String prop2, String prop3, int bonneProp, String theme, int niveau ){
-        super(theme, niveau);
+    public Qcm(String text, String prop1, String prop2, String prop3, int bonneProp, String theme, int niveau){
+        super(theme, niveau, 1);
         this.text = text;
         this.answers[0] = prop1;
         this.answers[1] = prop2;

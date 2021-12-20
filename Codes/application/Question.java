@@ -11,20 +11,24 @@ public abstract class Question extends Questions {
     protected int niveau;
     //indicateur pour =è
     private boolean posee;
+    //type de question 1 QCM 2 VF 3 RC
+    private int type;
 
     private static Scanner scanner = new Scanner(System.in);
 
-    public Question(){
+    public Question(int type){
         this.numero = numeroActuel;
         numeroActuel += 10;
         this.theme = Themes.getTheme(0);
         this.niveau = 0;
         super.ajoutQuestion(this);
         this.posee = false;
+        this.type = type;
     }
-    public Question(String theme, int niveau){
+    public Question(String theme, int niveau, int type){
         this.numero = numeroActuel;
-        numeroActuel += 10;
+        numeroActuel += 10;       
+        this.type = type;
         int temp;
         try {
             temp = Themes.getIndiceOfTheme(theme);
@@ -79,6 +83,11 @@ public abstract class Question extends Questions {
     //renvoit le niveau de la question
     public int getNiveau(){
         return this.niveau;
+    }
+
+    //1 QCM 2 VF 3 RC
+    public int getType(){
+        return this.type;
     }
 
     @Override

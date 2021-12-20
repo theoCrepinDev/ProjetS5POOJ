@@ -74,6 +74,12 @@ public class Themes{
         return themesChoisis; 
     }
 
+    public static void resetIndicateursThemes(){
+        for(Theme theme : themes){
+            theme.setIndicateur(false);
+        }
+    }
+
     public static void nouveauTheme(String nom){
         Theme theme = new Theme(nom);
         Themes.themes.add(theme);

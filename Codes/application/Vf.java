@@ -9,7 +9,7 @@ public class Vf extends Question{
     private static Scanner scanner = new Scanner(System.in);
     
     public Vf(){
-        super();
+        super(2);
         text = "";
         answer = false;
     }
@@ -17,7 +17,7 @@ public class Vf extends Question{
     //inutile je pense car on a la méthode de saisie
     //Nous la gardons en attendant de voir l'implémentation des phases de jeux.
     public Vf(String text, boolean answer, String theme, int niveau ){
-        super(theme, niveau);
+        super(theme, niveau,2);
         this.text = text;
         this.answer = answer;
     }
