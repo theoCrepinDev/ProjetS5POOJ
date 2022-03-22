@@ -1,3 +1,9 @@
+/*
+Projet question réponse 2021 GUERIMAND, CREPIN, PHILIPPE, BURETTE
+Méthodes nécéssaire au déroulement de la phase 1
+Séléection des joueurs > sélection du thème  > pose la question > met a jour le score > gère les égalités
+Ces méthode suive le déroulement indiqué dans le Sujet
+*/
 package application;
 
 import java.util.ArrayList;
@@ -175,5 +181,22 @@ public class Phase1 implements Phase {
         
     }
 
-    public int getDerniereQuestionSelectionnee(){return this.derniereQuestionSelec;}    
+    public int getDerniereQuestionSelectionnee(){return this.derniereQuestionSelec;}
+
+    @Override
+    public int getDerniereThemeSelectionnee() {
+        // TODO Auto-generated method stub
+        return this.dernierThemeSelectionne;
+    }    
+
+    @Override
+    public void setDernierThemeSelectionne(int theme){
+        this.dernierThemeSelectionne = theme;
+    }
+
+    @Override
+    public void trouverGrandGagnant() {
+        // TODO Auto-generated method stub
+        
+    }
 }

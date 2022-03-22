@@ -1,3 +1,8 @@
+/*
+Projet question réponse 2021 GUERIMAND, CREPIN, PHILIPPE, BURETTEs
+    Classe qui représente l'ensemble des joueurs
+*/
+
 package application;
 
 import java.util.ArrayList;
@@ -21,12 +26,12 @@ public class Joueurs{
         String etatJoueurTemp;
         Joueur joueurTemp;
         int indiceAleatoir = 0;
-        indiceAleatoir = rand.nextInt(nbrJoueurs - 1);
+        indiceAleatoir = rand.nextInt(nbrJoueurs);
         joueurTemp = joueurs.get(indiceAleatoir);
         etatJoueurTemp = joueurTemp.getEtat();
         while(etatJoueurTemp != "ATTENTE"){
             //on sélectionne un indice aléatoire et on stock la valeur de l'indicateur
-            indiceAleatoir = rand.nextInt(nbrJoueurs - 1);
+            indiceAleatoir = rand.nextInt(nbrJoueurs);
             joueurTemp = joueurs.get(indiceAleatoir);
             etatJoueurTemp = joueurTemp.getEtat();
         }
@@ -34,6 +39,8 @@ public class Joueurs{
         return joueurTemp;
     }
 
+    //génère 20 joueurs aléatoirement en demandant si il doit être controlé par l'ia ou par 
+    //l'utilisateur
     public static void generation20Joueurs(){
         String[] alphabet = {"A", "B", "C", "D", "E","F", "G", "H", "I","J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T"};
         for (String lettre : alphabet){
@@ -53,6 +60,7 @@ public class Joueurs{
 
     public static List<Joueur> getJoueur(){return Joueurs.joueurs;}
 
+    //renvoit le nombre de joueur pouvant être sélectionnés pour jouer
     public static int getNbrJoueursDisponnibles(){
         int joueursDisponnibles = 0;
         for(Joueur joueur : joueurs){
@@ -63,13 +71,20 @@ public class Joueurs{
         return joueursDisponnibles;
     }
 
+    //sélectionne les gagnants dans la liste de tous les joueurs
     public static List<Joueur> selectionGagnants(){
         List<Joueur> gagnants = new ArrayList<>();
         for (Joueur joueur : joueurs){
             if(joueur.getEtat() == "GAGNANT"){
+                joueur.changementEtat("SELECTIONNE");
                 gagnants.add(joueur);
             }
         }
         return gagnants;
+    }
+
+    //ajouter un nouveau joueur à la liste des joueurs
+    public static void ajoutJoueur(Joueur joueur){
+        joueurs.add(joueur);
     }
 }

@@ -1,9 +1,13 @@
+/*
+Projet question réponse 2021 GUERIMAND, CREPIN, PHILIPPE, BURETTE
+Implémente la Struture commune des trois types de Question possible
+*/
 package application;
 
 import java.util.Scanner;
 
 //class abstract car la définition des méthode de saisie et 
-//_à)/d'affihcage dépend du type de la question
+//d'affihcage dépend du type de la question
 public abstract class Question extends Questions {
     protected int numero;
     private static int numeroActuel = 1;
@@ -94,6 +98,8 @@ public abstract class Question extends Questions {
     public abstract String toString();
 
     public abstract void saisie();
+
+    public abstract String saisieDev();
 
     public abstract boolean verificationReponse(String reponseDonnee) throws ExceptionReponse;
 }

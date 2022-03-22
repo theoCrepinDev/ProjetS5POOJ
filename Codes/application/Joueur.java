@@ -1,3 +1,8 @@
+/*
+Projet question réponse 2021 GUERIMAND, CREPIN, PHILIPPE, BURETTE
+    Classe de déclaration de l'objet Joueur avec tous les paramètres adapté et les méthode permettants
+    à mettre à jour les paramètres d'un joueur
+*/
 package application;
 
 import java.util.Scanner;
@@ -23,6 +28,7 @@ public class Joueur{
         this.etat = "ATTENTE";
         timer = new Timer();
         iaControl = false;
+        Joueurs.ajoutJoueur(this);
     }
 
     public Joueur(String nom){
@@ -42,8 +48,11 @@ public class Joueur{
         }else{
             iaControl = false;
         }
+        
+        Joueurs.ajoutJoueur(this);
     }
 
+    //permet la saisie des paramètres d'un joueur par l'utilisateur
     public void saisie(){
         
         System.out.println("Quel est le nom du joueur ?");
@@ -82,7 +91,7 @@ public class Joueur{
 
     public String getNom(){return this.nom;}
 
-    //méthode gestion timer
+    //méthodes gestion timer
     public void startTimer(){
         this.timer.startTimer();
     }
@@ -95,6 +104,7 @@ public class Joueur{
         return this.timer.getElapsedTime();
     }
 
+    //renvoit le boolean pour savoir si le joueur est controlé par l'ia ou non
     public boolean isIa(){ return this.iaControl; }
 
     //méthode de test pour mettre la valeur du timer à x secondes

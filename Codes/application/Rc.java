@@ -1,3 +1,7 @@
+/*
+Projet question réponse 2021 GUERIMAND, CREPIN, PHILIPPE, BURETTE
+Implémente les méthodes abstraite et toutes les fonctionnélité propre au Réponse courtes
+*/
 package application;
 
 import java.util.Scanner;
@@ -22,29 +26,32 @@ public class Rc extends Question{
         this.answer = answer;
     }
 
+    //permet la saisie d'une question
     public void saisie(){
         System.out.println("ha Quel est le theme de la question ?");
-        if(scanner.hasNextLine()){
-            super.setTheme(scanner.nextLine());
-        }
+        super.setTheme(scanner.nextLine());
         System.out.println("Quel est l'enonce de la question ?");
-        if(scanner.hasNextLine()){
-            this.text = scanner.nextLine();
-        }
-        
+        this.text = scanner.nextLine();        
         System.out.println("Quelle est la réponse de la question ? ");
-        if(scanner.hasNextLine()){
-            this.answer = scanner.nextLine();
-        }
-        
+        this.answer = scanner.nextLine();        
         System.out.println("Quel est le niveau de la question ?");
-        if(scanner.hasNextInt()){
-            this.niveau = scanner.nextInt();
-        }
-        
-        
+        this.niveau = scanner.nextInt();        
         
         System.out.println("Question enregistrée.");
+    }
+    //permet la saisie d'une question et renvoit ce qui doit être inscrit dans le fichier donnees.txt
+    public String saisieDev(){
+        System.out.println("Ajout d'une question de types Réponse courte Quel est le theme de la question ?");       
+        String theme = scanner.next();        
+        super.setTheme(theme);
+        System.out.println("Quel est l'enonce de la question ?");
+        this.text = scanner.next();         
+        System.out.println("Quelle est la réponse de la question ?");   
+        this.answer = scanner.next();       
+        System.out.println("Quel est le niveau de la question ?");
+        this.niveau = scanner.nextInt();
+        System.out.println("Question enregistrée.");
+        return "RC, " + this.numero + "," +this.text + "," + this.answer + "," + this.theme.getNom() + "," + this.niveau;
     }
 
     @Override

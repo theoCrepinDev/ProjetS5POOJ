@@ -1,3 +1,7 @@
+/*
+Projet question réponse 2021 GUERIMAND, CREPIN, PHILIPPE, BURETTE
+ Implementation de l'objet QCM qui implémente les méthodes abstract de Question selon le type QCM
+ */
 package application;
 
 import java.util.Scanner;
@@ -31,51 +35,44 @@ public class Qcm extends Question {
         this.repJuste = bonneProp;
     }
 
+    //permet la saisie d'une question
     public void saisie(){
         System.out.println("Ajout d'une question de types QCM Quel est le theme de la question ?");
-        if(scanner.hasNextLine()){
-            super.setTheme(scanner.nextLine());
-        }
-        
-        
+        super.setTheme(scanner.next());
         System.out.println("Quel est l'enonce de la question ?");
-        while(!scanner.hasNextLine()){
-            
-        }
-        this.text = scanner.nextLine();
-        
-        System.out.println("Quel est le niveau de la question");
-        if(scanner.hasNextInt()){
-            this.niveau = scanner.nextInt();
-        }
-
-        System.out.println("");
-        if(scanner.hasNextLine()){
-            this.answers[1] = scanner.nextLine();
-        }
+        this.text = scanner.next();
         System.out.println("Quelle est le choix n°1 de la question ? ");
-        if(scanner.hasNextLine()){
-            this.answers[0] = scanner.nextLine();
-        }
-
+        this.answers[0] = scanner.next();
         System.out.println("Quelle est le choix n°2 de la question ? ");
-        if(scanner.hasNextLine()){
-            this.answers[1] = scanner.nextLine();
-        }
-        
-        
-        
+        this.answers[1] = scanner.next();
         System.out.println("Quelle est le choix n°3 de la question ? ");
-        if(scanner.hasNextLine()){
-            this.answers[2] = scanner.nextLine();
-        }
-        
+        this.answers[2] = scanner.next();
+        System.out.println("Quel est le niveau de la question");
+        this.niveau = scanner.nextInt();
         System.out.println("Quelle est la bonne réponse de la question ? (numéro)");
-        if(scanner.hasNextInt()){
-            this.repJuste = scanner.nextInt();
-        }
-        
+        this.repJuste = scanner.nextInt();        
         System.out.println("Question enregistrée.");
+    }
+
+    //permet la saisie d'une question dans le menu utilisateur et permet de renvoyer ce qu'il faut 
+    //inscrire dans le fichier Donnees.txt
+    public String saisieDev(){
+        System.out.println("Ajout d'une question de types QCM Quel est le theme de la question ?");
+        super.setTheme(scanner.next());
+        System.out.println("Quel est l'enonce de la question ?");
+        this.text = scanner.next();
+        System.out.println("Quelle est le choix n°1 de la question ? ");
+        this.answers[0] = scanner.next();
+        System.out.println("Quelle est le choix n°2 de la question ? ");
+        this.answers[1] = scanner.next();
+        System.out.println("Quelle est le choix n°3 de la question ? ");
+        this.answers[2] = scanner.next();
+        System.out.println("Quel est le niveau de la question");
+        this.niveau = scanner.nextInt();
+        System.out.println("Quelle est la bonne réponse de la question ? (numéro)");
+        this.repJuste = scanner.nextInt();        
+        System.out.println("Question enregistrée.");
+        return "Qcm, " + "q" + this.numero + "," +this.text + "," + this.answers[0] + ","+ this.answers[1] + ","+ this.answers[2] + "," + this.repJuste + "," +  this.theme.getNom() + "," + this.niveau;
     }
 
     @Override

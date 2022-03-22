@@ -1,11 +1,21 @@
+/*
+Projet question réponse 2021 GUERIMAND, CREPIN, PHILIPPE, BURETTE
+Classe pour la gestion du fichier de données,
+permet de lire les questions présentes dans le fichier et le thème au lancement du programme
+permet d'inscrire les nouveaux thèmes et les nouvelle questions rentrées 
+par les utilisateur lors de l'exécution
+*/
+
 package application;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.io.*;
+import java.util.Scanner; 
+
 
 public class GestionFichier {
+    private static Scanner scanner = new Scanner(System.in);
 
+    //lecture des thèmes présents dans le fichier Themes.txt à l'execution du programme
     public static void lectureThemes() throws FileNotFoundException{
         FileInputStream file = new FileInputStream("Themes.txt");
         Scanner scannerThemes = new Scanner(file);
@@ -17,12 +27,10 @@ public class GestionFichier {
         }
     }
 
+    //lecture des questions présentes dans le fichier Donnees.txt à l'execution du programme
     public static void lectureQuestions() throws FileNotFoundException{
         FileInputStream file = new FileInputStream("Donnees.txt");
         Scanner scannerLecture = new Scanner(file);
-
-        int i = 0 ;
-
         while(scannerLecture.hasNextLine()){
             String line = scannerLecture.nextLine();
             String[] lineSep = line.split(",");
@@ -62,5 +70,69 @@ public class GestionFichier {
             }
         }
     }
-    
+
+    //inscrit une nouvelle question dans le fichier Donnees.txt
+    public static void ajoutQuestion(String text) throws FileNotFoundException{
+        //FileInputStream file = new FileInputStream("Donnees.txt");
+        //Scanner scanner = new Scanner(file);
+        try
+        {
+            //String filename="Donnees.txt";
+            
+            FileWriter fw = new FileWriter("Donnees.txt",true);
+            fw.write("\n" + text);
+            fw.close();
+        }
+
+        catch(IOException ioe)
+        {
+            System.err.println("IOException:" + ioe.getMessage());
+        }
+    }
+
+    //inscrit un nouveau thème dans le fichier Themes.txt
+    public static void AjoutTheme(String theme) throws FileNotFoundException{
+        //FileInputStream file = new FileInputStream("Donnees.txt");
+        //Scanner scanner = new Scanner(file);
+        try
+        {
+            //String filename="Donnees.txt";
+            
+            FileWriter fw = new FileWriter("Themes.txt",true);
+            fw.write("\n" + theme);
+            fw.close();
+        }
+
+        catch(IOException ioe)
+        {
+            System.err.println("IOException:" + ioe.getMessage());
+        }
+    }
+
+    //fonction qui permet a l'utilisateur de rentrer une nouvelle question
+    public static void askForQuestion() throws FileNotFoundException{
+        System.out.println("Quelle type de question voulez vous implementer : \n1:Qcm \n2: Vf\n3: Reponse courte");
+        int indType = scanner.nextInt();
+        if ( indType == 1){
+            ajoutQuestion((new Qcm()).saisieDev());
+        }
+        if ( indType == 2){
+            ajoutQuestion((new Vf()).saisieDev());
+        }
+        if ( indType == 3){
+            ajoutQuestion((new Rc()).saisieDev());
+        }
+    }
+
+    //fonction qui permet à l'utilisateur d'entrer un nouveau thème
+    public static void askForTheme() throws FileNotFoundException{
+        System.out.println("Quel est le nom du nouveau theme ?");
+        String nvxTheme = scanner.next();
+        AjoutTheme(nvxTheme);
+        Themes.nouveauTheme(nvxTheme);
+        
+    }
+
+
 }
+

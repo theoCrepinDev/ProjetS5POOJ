@@ -1,3 +1,9 @@
+/* 
+Projet question réponse 2021 GUERIMAND, CREPIN, PHILIPPE, BURETTE
+    classe qui créer le fonctionnement de la phase 1, 2 et 3 qui serons ensuite appellées
+    dans le jeu pour faire dérouler les parties
+*/
+
 package application;
 
 import java.util.List;
@@ -6,6 +12,7 @@ import java.util.Scanner;
 public class Jouer {
     private Phase jeu;
     private static Scanner scanner = new Scanner(System.in);
+    private static int dernierThemeSelectionne = -1;
 
     public Jouer(){
         jeu = new Phase1();
@@ -17,12 +24,15 @@ public class Jouer {
         jeu = new Phase2(gagnants);
     }
 
+    //réalise la phase 1 avec les méthide de l'interface phase et lance la phase 2
     public void jouerPhase1(){
+        jeu.setDernierThemeSelectionne(dernierThemeSelectionne);
         jeu.selectionJoueurs();
-        System.out.println("Bienvenu chèr joueurs, la Phase 1 va pourvoir commencer....");
+        System.out.println("Bienvenu chère joueurs, la Phase 1 va pourvoir commencer....");
         System.out.println("Voici les joueurs sélectionnés pour cette phase :");
         System.out.println(jeu.getJoueursJeu());
 
+        //pose une question a chasque joueur
         for(int i = 0; i < 4; i++){
             jeu.selectionTheme();
             jeu.selectionQuestion(jeu.getThemesSelectionnes().get(0));
@@ -33,6 +43,8 @@ public class Jouer {
             }
         }
         
+        //on vérifie qu'il n'y a pas d'égalité et si il y en a on repose des questions aux joueurs 
+        //étant en égalité
         int nbrQuestionSupp = 0;
         while(!jeu.uniquePerdant() && nbrQuestionSupp < 3){
             System.out.println("il y a plusieurs perdant, égalité de score et de temps de réponse, nous allons les départager en trois question maximum..");
@@ -53,6 +65,8 @@ public class Jouer {
         System.out.println("Félicitation, la phase 1 est finie, vici les résultat :");
         System.out.println(jeu.getJoueursJeu());
 
+        dernierThemeSelectionne = jeu.getDerniereThemeSelectionnee();
+
         int choix = 0;
         while(choix != 1 && choix != 2){
             System.out.println("Souaitez vous passer à la pahse 2 ? \n 1 oui 2 arrêter le jeu ici ..");
@@ -65,6 +79,7 @@ public class Jouer {
         
     }
 
+    //réalise la phase 2 avec les méthide de l'interface phase et lance la phase 3
     public void jouerPhase2(){
         System.out.println("Bienvenu, si vous en êtes là c'est que vous avez gagné la phase 1 ... \n La phase 2 va pouvoir commencer !");
         jeu.selectionJoueurs();
@@ -103,15 +118,16 @@ public class Jouer {
             }
             
         }
-
+        //on vérifie qu'il n'y a pas d'égalité et si il y en a on repose des questions aux joueurs 
+        //étant en égalité
         int nbrQuestionSupp = 0;
         while(!jeu.uniquePerdant() && nbrQuestionSupp < 3){
             System.out.println("il y a plusieurs perdant, égalité de score et de temps de réponse, nous allons les départager en trois question maximum..");
             System.out.println("Si après cela il y a toujours égalité ils serons départagés aléatoirement au début de la phase suivante");;
             List<Integer> perdants =jeu.getPerdants();
             for(int i : perdants){
-                jeu.selectionTheme();
-                jeu.selectionQuestion(jeu.getThemesSelectionnes().get(0));
+                jeu.selectionQuestion(Themes.getTheme((dernierThemeSelectionne + 1) % Themes.getNbrThemes()));
+                dernierThemeSelectionne++;
                 try {
                     jeu.poserQuestions(i);
                 } catch (InterruptedException e) {
@@ -134,6 +150,7 @@ public class Jouer {
             }
     }
 
+    //réalise la phase 3 avec les méthide de l'interface phase et affiche le gagnant
     public void jouerPhase3(){
         jeu = new Phase3(jeu);
         jeu.selectionJoueurs();
@@ -171,7 +188,8 @@ public class Jouer {
 
             }
         }
-
+        //on vérifie qu'il n'y a pas d'égalité et si il y en a on repose des questions aux joueurs 
+        //étant en égalité
         int nbrQuestionSupp = 0;
         while(!jeu.uniquePerdant() && nbrQuestionSupp < 3){
             System.out.println("il y a plusieurs perdant, égalité de score et de temps de réponse, nous allons les départager en trois question maximum..");
@@ -198,18 +216,19 @@ public class Jouer {
         if(Joueurs.getNbrJoueursDisponnibles() < 12){
             System.out.println("Il n'y a pas assez de joueurs disponnible pour faire un grand jeu\nIl faut au minimum 12 joueurs.");
         }else{
-            for(int i = 0; i < 4; i++){
+            for(int i = 0; i < 3; i++){
                 Jouer jeu = new Jouer();
                 jeu.jouerPhase1();
                 System.out.println(Joueurs.getJoueur());
                 Themes.resetIndicateursThemes();
                 Questions.resetIndicateursQuestion();
-                System.out.print("Êtes vous prêts pour un nouveau jeu ?\n1 oui\n2 on s'arrête");
+                System.out.print("LE prochain jeu va commencer ... (entrer n'importe quelle lettre)");
                 scanner.next();
             }
             List<Joueur> gagnants = Joueurs.selectionGagnants();
             Jouer jeuGagnant = new Jouer(gagnants);
             jeuGagnant.jouerPhase2();
+            jeuGagnant.jeu.trouverGrandGagnant();
         }
     }
 }

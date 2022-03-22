@@ -1,3 +1,8 @@
+/*
+Projet question réponse 2021 GUERIMAND, CREPIN, PHILIPPE, BURETTE
+    implémente les question de Type Vrai/Faux
+    implémente les méthode abstract de Question et tout les paramètres propres au type VF
+*/
 package application;
 
 import java.util.Scanner;
@@ -23,22 +28,14 @@ public class Vf extends Question{
     }
 
     public void saisie(){
-        System.out.println("Ajout d'une question de types Vrai faux Quel est le theme de la question ?");
-        if(scanner.hasNextLine()){
-            super.setTheme(scanner.nextLine());
-        }
-        System.out.println("Quel est l'enonce de la question ?");
-        if(scanner.hasNextLine()){
-            this.text = scanner.nextLine();
-        }
-        System.out.println("Quel est le niveau de la question ?");
-        if(scanner.hasNextInt()){
-            this.niveau = scanner.nextInt();
-        }
+        System.out.println("Ajout d'une question de types Vrai faux Quel est le theme de la question ?");       
+        super.setTheme(scanner.nextLine());        
+        System.out.println("Quel est l'enonce de la question ?");        
+        this.text = scanner.nextLine();        
+        System.out.println("Quel est le niveau de la question ?");        
+        this.niveau = scanner.nextInt();        
         System.out.println("Quelle est la réponse de la question ? (true / false ?)");
-        if(scanner.hasNextBoolean()){
-            this.answer = scanner.nextBoolean();
-        }
+        this.answer = scanner.nextBoolean();        
         System.out.println("Question enregistrée.");
     }
 
@@ -47,6 +44,20 @@ public class Vf extends Question{
         String string = "";
         string = ("Cette question VF est la numero " + this.numero + "  portant sur le theme de " + this.theme.getNom() + " de niveau " + this.niveau + ". \n L'enonce est : " + this.text + "\n" + "réponse attenude: 1 pour vrai et 2 pour faux \n");
         return string;
+    }
+
+    public String saisieDev(){
+        System.out.println("Ajout d'une question de types Vrai faux Quel est le theme de la question ?");       
+        String theme = scanner.next();        
+        super.setTheme(theme);
+        System.out.println("Quel est l'enonce de la question ?");
+        this.text = scanner.next();        
+        System.out.println("Quel est le niveau de la question ?");
+        this.niveau = scanner.nextInt();        
+        System.out.println("Quelle est la réponse de la question ? (true / false ?)");   
+        this.answer = scanner.nextBoolean();
+        System.out.println("Question enregistrée.");
+        return "Vf, " + this.numero + "," +this.text + "," + this.answer + "," + this.theme.getNom() + "," + this.niveau;
     }
 
     //on prend que pour les VF l'utilisateur entrera 1 pour vrai et 2 pour faux
@@ -59,5 +70,6 @@ public class Vf extends Question{
         }
         throw new ExceptionReponse();
     }
+
 
 }

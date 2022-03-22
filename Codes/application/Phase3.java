@@ -1,3 +1,9 @@
+/*
+Projet question réponse 2021 GUERIMAND, CREPIN, PHILIPPE, BURETTE
+Méthodes nécéssaire au déroulement de la phase 1
+Séléection des joueurs > sélection du thème  > pose la question > met a jour le score > gère les égalités
+Ces méthode suive le déroulement indiqué dans le Sujet
+*/
 package application;
 
 import java.util.ArrayList;
@@ -10,12 +16,14 @@ public class Phase3 implements Phase {
     private int derniereQuestionSelec;
     private Question questionAPoser;
     private List<Theme> themesSelectiones;
+    private int dernierThemeSelectionne;
 
     private static Scanner scanner = new Scanner(System.in);
 
     public Phase3(Phase phase2){
         this.joueursSelectionnes = phase2.getJoueursJeu();
         this.derniereQuestionSelec = phase2.getDerniereQuestionSelectionnee();
+        this.dernierThemeSelectionne = phase2.getDerniereThemeSelectionnee();
     }
 
     //fonction pour savoir si il y a plusieurs joueurs avec le score le plus faible
@@ -90,7 +98,7 @@ public class Phase3 implements Phase {
             List<Integer> perdants = getPerdants();
             int nbrPerdants = perdants.size();
             Random rand = new Random();
-            int indicePerdant = rand.nextInt(nbrPerdants - 1);
+            int indicePerdant = rand.nextInt(nbrPerdants);
             joueursSelectionnes.get(perdants.get(indicePerdant)).changementEtat("ELIMINE");
             joueursSelectionnes.remove(joueursSelectionnes.get(perdants.get(indicePerdant)));
 
@@ -208,11 +216,35 @@ public class Phase3 implements Phase {
         }        
     }
 
+    public void trouverGrandGagnant() {
+        // TODO Auto-generated method stub
+        if(joueursSelectionnes.get(0).getScore() > joueursSelectionnes.get(1).getScore()){
+            System.out.println("Félicitation le joueur " + joueursSelectionnes.get(0).getNom() + " a gagné le GRAND-JEU !!!!");
+            joueursSelectionnes.get(1).changementEtat("ELIMINE");
+            joueursSelectionnes.get(0).changementEtat("GRAND-GAGNANT");
+        }
+        else{
+            System.out.println("Félicitation le joueur " + joueursSelectionnes.get(1).getNom() + " a gagné le grand-JEU!!!!");
+            joueursSelectionnes.get(0).changementEtat("ELIMINE");
+            joueursSelectionnes.get(1).changementEtat("GRAND-GAGNANT");
+        }        
+    }
+
     @Override
     public int getDerniereQuestionSelectionnee() {
         // TODO Auto-generated method stub
         return 0;
+    }
+
+    @Override
+    public int getDerniereThemeSelectionnee() {
+        // TODO Auto-generated method stub
+        return this.dernierThemeSelectionne;
     }    
 
+    @Override
+    public void setDernierThemeSelectionne(int theme){
+        this.dernierThemeSelectionne = theme;
+    }
     
 }
