@@ -1,3 +1,8 @@
+/*
+Projet question réponse 2021 GUERIMAND, CREPIN, PHILIPPE, BURETTE
+    Interface qui permet de réaliser les action nécéssaires au jeu en fonction de la phase en cours
+
+*/
 package application;
 
 import java.util.List;
@@ -13,4 +18,7 @@ public interface Phase {
     int getDerniereQuestionSelectionnee();
     boolean uniquePerdant();
     List<Integer> getPerdants();
+    int getDerniereThemeSelectionnee();
+    void setDernierThemeSelectionne(int dernierThemeSelectionne);
+    void trouverGrandGagnant();
 }

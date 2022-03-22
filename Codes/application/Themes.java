@@ -1,3 +1,8 @@
+/*
+Projet question réponse 2021 GUERIMAND, CREPIN, PHILIPPE, BURETTE
+    Gestion de l'ensemble des thèmes et la sélection aléatoire ou non d'un ou plusieurs thèemes
+*/
+
 package application;
 
 import java.util.ArrayList;
@@ -6,37 +11,12 @@ import java.util.Random;
 
 public class Themes{
     protected static List<Theme> themes = new ArrayList<>();
-    private String nom;
-    private boolean indicateur;
-
-    public Themes(){
-        this.nom = "";
-        //indicateur à faux si le thème n'a pas encore était choisit
-        this.indicateur = false;
-    }
-
-    public Themes(String nom){
-        this.nom = nom;
-        this.indicateur = false;
-    }
-
-    //méthdodes d'instance
-    public String getNom(){
-        return this.nom;
-    }
-
-    public boolean getIndicateur(){return this.indicateur;}
-
-    public void setIndicateur(boolean bool){this.indicateur = bool;}
-
-    public void setNom(String nom){this.nom = nom;}
-
-
 
     //méthodes de classes
     public static List<Theme> getThemes(){return themes;}
 
-    //fonction renvoit -1 si le thème n'existe pas ou n'est pas dispo?
+    //fonction qui renvoit l'indice du thème donné en argument
+    //sinon renvoit une exception qui sera gérée plus tard
     public static int getIndiceOfTheme(String nom) throws ExceptionTheme{
         int positionActuel = 0;
         for(Theme theme:themes){
@@ -56,12 +36,12 @@ public class Themes{
         Random rand = new Random();
         int nbrThemes = themes.size();
         for(int i =0; i < 6; i++){
-        int indiceAleatoir = rand.nextInt(nbrThemes - 1);
+        int indiceAleatoir = rand.nextInt(nbrThemes);
         Theme themeTemp = Themes.themes.get(indiceAleatoir);
         boolean indicaThemeTemp = themeTemp.getIndicateur();
             while(indicaThemeTemp){
                 //on séléection un indice aléatoir et on stock la valeur de l'indicateur du thème associé 
-                indiceAleatoir = rand.nextInt(nbrThemes -1);
+                indiceAleatoir = rand.nextInt(nbrThemes);
                 themeTemp = Themes.themes.get(indiceAleatoir);
                 indicaThemeTemp = themeTemp.getIndicateur();
             }
@@ -74,17 +54,20 @@ public class Themes{
         return themesChoisis; 
     }
 
+    //remet tous les indicateurs à false
     public static void resetIndicateursThemes(){
         for(Theme theme : themes){
             theme.setIndicateur(false);
         }
     }
 
+    //permet de créer un nouveau thème et le met dans la liste
     public static void nouveauTheme(String nom){
         Theme theme = new Theme(nom);
         Themes.themes.add(theme);
     }
 
+    //ajoute un thème à la liste
     public static void add(Theme theme){
         Themes.themes.add(theme);
     }

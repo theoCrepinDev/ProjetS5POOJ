@@ -1,3 +1,9 @@
+/*
+Projet question réponse 2021 GUERIMAND, CREPIN, PHILIPPE, BURETTE
+    Implémentation des timmer associés aux joueurs qui permet de les départagé en cas d'égalite
+    et de connaitre leur temps total de réponse
+*/
+
 package application;
 
 public class Timer extends Thread{

@@ -1,3 +1,7 @@
+/*
+Projet question réponse 2021 GUERIMAND, CREPIN, PHILIPPE, BURETTE
+    Implémentation de l'objet Thème avec la gestion de son indicateur et de son nom
+*/
 package application;
 
 public class Theme{

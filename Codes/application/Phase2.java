@@ -1,3 +1,9 @@
+/*
+Projet question réponse 2021 GUERIMAND, CREPIN, PHILIPPE, BURETTE
+Méthodes nécéssaire au déroulement de la phase 1
+Séléection des joueurs > sélection du thème  > pose la question > met a jour le score > gère les égalités
+Ces méthode suive le déroulement indiqué dans le Sujet
+*/
 package application;
 
 import java.util.ArrayList;
@@ -17,6 +23,7 @@ public class Phase2 implements Phase {
     public Phase2(Phase phase1){
         this.joueursSelectionnes = phase1.getJoueursJeu();
         this.derniereQuestionSelec = phase1.getDerniereQuestionSelectionnee();
+        this.dernierThemeSelectionne = phase1.getDerniereThemeSelectionnee();
     }
 
     public Phase2(List<Joueur> gagnants) {
@@ -99,7 +106,7 @@ public class Phase2 implements Phase {
                 List<Integer> perdants = getPerdants();
                 int nbrPerdants = perdants.size();
                 Random rand = new Random();
-                int indicePerdant = rand.nextInt(nbrPerdants - 1);
+                int indicePerdant = rand.nextInt(nbrPerdants);
                 joueursSelectionnes.get(perdants.get(indicePerdant)).changementEtat("ELIMINE");
                 joueursSelectionnes.remove(joueursSelectionnes.get(perdants.get(indicePerdant)));
     
@@ -211,5 +218,22 @@ public class Phase2 implements Phase {
 
     public int getDerniereQuestionSelectionnee(){
         return this.derniereQuestionSelec;
+    }
+
+    @Override
+    public int getDerniereThemeSelectionnee() {
+        // TODO Auto-generated method stub
+        return this.dernierThemeSelectionne;
+    }
+
+    @Override
+    public void setDernierThemeSelectionne(int theme){
+        this.dernierThemeSelectionne = theme;
+    }
+
+    @Override
+    public void trouverGrandGagnant() {
+        // TODO Auto-generated method stub
+        
     }
 }
